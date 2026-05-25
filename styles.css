@@ -153,10 +153,10 @@ body {
 }
 
 .btn-regresar-rastro {
-  background-color: #2e697d;
+  background-color: #8d8b39;
 }
 .btn-regresar-rastro:hover {
-  background-color: #1f585c;
+  background-color: #f6ff00;
   transform: scale(1.03);
 }
 
@@ -226,7 +226,58 @@ body {
 }
 
 /* --- ESTILOS DE PÁGINAS TEMÁTICAS --- */
-* Contenedor flexible para alinear los elementos */
+.contenedor-retos {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 20px 0;
+}
+
+.fila-revelacion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.img-principal, .img-revelada {
+  width: 100px; /* Ajusta el tamaño según tus imágenes */
+  height: auto;
+  border-radius: 10px;
+}
+
+.btn-flecha {
+  background: #7b09a4; 
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: transform 0.3s;
+}
+
+.btn-flecha:hover {
+  transform: scale(1.1);
+}
+
+/* Estado oculto */
+.revelar-oculto {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.5s ease;
+  visibility: hidden;
+}
+
+/* Estado visible (se activa con JS) */
+.mostrar-insignia {
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
+}
+
+/* Contenedor flexible para alinear los elementos */
 .encabezado-con-imagen {
   display: flex;
   flex-direction: row; /* Fuerza a que sea uno al lado del otro */
@@ -283,6 +334,16 @@ body {
   margin: 0 auto;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
+.pagina-rastro {
+  background-color: #f5f5e8 !important;
+  text-align: center;
+  padding: 40px 60px;
+  border-radius: 24px;
+  max-width: 850px;
+  width: 95%;
+  margin: 0 auto;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
 
 .titulo-pantanos {
   color: #2e7d32;
@@ -303,6 +364,11 @@ body {
 }
 .titulo-cubil {
   color: #2e7a7d;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+.titulo-rastro {
+  color: #7d7c2e;
   font-size: 2.2rem;
   margin-bottom: 15px;
 }
