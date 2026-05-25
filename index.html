@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PJOS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="pantalla-bienvenida" class="bienvenida-container">
+      <img src="Glow.jpg" alt="Imagen de Bienvenida" class="imagen-inicio" />
+      <button id="btn-inicio" class="boton-inicio">Comenzar</button>
+    </div>
+
+    <div id="pantalla-ramas" class="contenido-oculto bienvenida-container">
+      <p class="subtitulo-principal">Selecciona tu sección:</p>
+      <div class="contenedor-ramas">
+        <button id="btn-ir-manada" class="btn-rama btn-manada">Manada</button>
+        <button class="btn-rama btn-tropa">Tropa</button>
+        <button class="btn-rama btn-comunidad">Comunidad</button>
+        <button class="btn-rama btn-clan">Clan</button>
+      </div>
+      <button id="btn-regresar-bienvenida" class="btn-regresar">
+        Volver al Inicio
+      </button>
+    </div>
+
+    <div id="pantalla-manada" class="contenido-oculto bienvenida-container">
+      <h1 class="titulo-principal" style="color: #ffca28">Cazaderos</h1>
+      <p class="subtitulo-principal">
+        Antes de iniciar con las progresiones, se deberá de entregar la insignia
+        <strong>Mi primer rastro</strong>, corresponde a la etapa inicial en la
+        vida de la Sección del Lobato o Lobezna; ésta no se gana, sino que se
+        entrega como parte de la identidad de la Sección.
+      </p>
+      <p>De acuerdo a los 4 ejes temáticos:</p>
+
+      <div class="contenedor-territorios">
+        <div class="tarjeta-territorio">
+          <button class="btn-territorio btn-pantanos">
+            PANTANOS DEL NORTE<br /><span
+              >(Bagheera - Medio Ambiente y Sustentabilidad)</span
+            >
+          </button>
+          <img
+            src="manada/pantanos/pantanos.jpg"
+            alt="Pantanos del Norte"
+            class="img-lateral"
+          />
+        </div>
+
+        <div class="tarjeta-territorio">
+          <button class="btn-territorio btn-dekkan">
+            DEKKAN<br /><span
+              >(Hermano Gris - Paz y Participación Comunitaria)</span
+            >
+          </button>
+          <img src="manada/dekkan/DEKKAN.jpg" alt="Dekkan" class="img-lateral" />
+        </div>
+
+        <div class="tarjeta-territorio">
+          <button class="btn-territorio btn-colinas">
+            COLINAS DEL SEEONEE<br /><span
+              >(Baloo - Habilidades para la Vida)</span
+            >
+          </button>
+          <img
+            src="manada/colinas/colinas.jpg"
+            alt="Colinas del Seeonee"
+            class="img-lateral"
+          />
+        </div>
+
+        <div class="tarjeta-territorio">
+          <button class="btn-territorio btn-cubil">
+            CUBIL<br /><span>(Raksha - Salud y Bienestar)</span>
+          </button>
+          <img src="cubil.jpg" alt="Cubil" class="img-lateral" />
+        </div>
+      </div>
+      <button id="btn-regresar-ramas" class="btn-regresar">
+        Volver a Secciones
+      </button>
+    </div>
+
+    <div id="pantalla-pantanos" class="contenido-oculto pagina-verde">
+      <h1 class="titulo-pantanos">Pantanos del Norte</h1>
+      <p class="intro-texto">
+        No siempre cruzarás cazaderos sencillos, aquí junto a Bagheera
+        encontrarás la naturaleza, tu Medio Ambiente, tu cultura y cómo te
+        relacionas con todo tu entorno.
+      </p>
+      <div class="contenedor-explicacion">
+        <button id="btn-malla-pantanos" class="tarjeta-opcion-btn">
+          <h3>Malla de Competencias</h3>
+          <p>
+            Deberás de trabajar sobre estos objetivos a través de las insignias,
+            actividades, campamentos y experiencias dentro o fuera del
+            movimiento.
+          </p>
+          <p style="text-align: left; margin-top: 8px">
+            &#10003; Planos de relación
+          </p>
+          <p style="text-align: left">&#10003; Preseas (Metacompetencias)</p>
+          <p style="text-align: left">
+            &#10003; Dentelladas (Saberes a desarrollar)
+          </p>
+        </button>
+        <button id="btn-insignias-pantanos" class="tarjeta-opcion-btn">
+          <h3>Insignias</h3>
+          <img
+            src="manada/pantanos/medioambiente.jpg"
+            alt="Insignias"
+            style="margin-top: 10px"
+          />
+        </button>
+      </div>
+      <button id="btn-volver-manada-pantanos" class="btn-regresar"
+      style="background-color: #2e7d32"
+      >
+        Volver a Manada
+      </button>
+    </div>
+
+    <div id="pantalla-malla" class="contenido-oculto pagina-verde">
+      <h1 class="titulo-pantanos">Malla de Competencias</h1>
+      <p
+        class="subtitulo-principal"
+        style="color: #2e7d32; margin-bottom: 10px"
+      >
+        Territorio de Bagheera - Medio Ambiente y Sustentabilidad
+      </p>
+      <p style="margin-bottom: 20px; color: #444">
+        Deberás de completar 3 dentelladas para obtener el cazadero
+      </p>
+
+      <div class="contenedor-tabla">
+        <table class="tabla-competencias">
+          <thead>
+            <tr>
+              <th>Planos de Relación</th>
+              <th>Preseas (Metacompetencias)</th>
+              <th>Dentelladas (Saberes a desarrollar)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-plano" rowspan="3">
+                <strong>Relación con el entorno</strong>
+              </td>
+              <td>
+                Aprecia el valor de la naturaleza y cuida la biodiversidad
+              </td>
+              <td class="col-dentelladas">
+                <p>&#9744; Cuida el entorno natural</p>
+                <p>&#9744; Cuida la biodiversidad</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Conoce la vida al aire libre, respetando el entorno natural
+              </td>
+              <td class="col-dentelladas">
+                <p>&#9744; Respeta el entorno natural</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Participa en proyectos de desarrollo sustentable, propuestos por
+                los adultos
+              </td>
+              <td class="col-dentelladas">
+                <p>&#9744; Participa en proyectos de desarrollo sustentable</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button
+        id="btn-volver-pantanos"
+        class="btn-regresar"
+        style="background-color: #2e7d32"
+      >
+        Volver a Pantanos
+      </button>
+    </div>
+
+    <div id="pantalla-insignias" class="contenido-oculto pagina-verde">
+      <h1 class="titulo-pantanos">Insignias e Iniciativas</h1>
+      <h2 class="sub-seccion-titulo">Especialidades</h2>
+      <p>
+        Para dar inicio a la colocación de las insignias de especialidades se
+        entregará un elemento de identidad, es decir la cabeza de Kaa.
+      </p>
+
+      <div class="contenedor-tabla">
+        <table class="tabla-insignias">
+          <thead>
+            <tr>
+              <th>Esquema Anterior</th>
+              <th>PJOS (Actual)</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+                rowspan="2"
+                style="vertical-align: middle; background-color: #f9fbe7"
+              >
+                <div class="celda-combinada">
+                  <img src="manada/pantanos/ecologia.jpg" alt="Esquema Anterior" />
+                  <span>Ecología</span>
+                </div>
+              </td>
+              <td>
+                <div class="celda-combinada">
+                  <img src="manada/pantanos/planeta.jpg" alt="PJOS Actual" />
+                  <span>Protección del planeta</span>
+                </div>
+              </td>
+              <td>
+                Área de especialidad <strong>Mang</strong><br />
+                Enfoque orientado al cuidado climático, reducción de huella de
+                carbono y preservación de recursos críticos de la selva.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="celda-combinada">
+                  <img src="manada/pantanos/naturaleza.jpg" alt="PJOS Actual" />
+                  <span>Naturaleza y biodiversidad</span>
+                </div>
+              </td>
+              <td>
+                Área de especialidad <strong>Mang</strong><br />
+                Acciones enfocadas en el reconocimiento de la flora y fauna
+                local, técnicas scouts de vida al aire libre y reforestación.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="sub-seccion-titulo">Aventuras en la Naturaleza</h2>
+      <div class="contenedor-tabla">
+        <table class="tabla-insignias">
+          <thead>
+            <tr>
+              <th>Esquema Anterior</th>
+              <th>PJOS (Actual)</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+                rowspan="2"
+                style="vertical-align: middle; background-color: #f9fbe7"
+              >
+                <div class="celda-combinada">
+                  <img src="val.png" alt="Esquema Anterior" style="width: 150px;"/>
+                  <span>Vida al Aire Libre</span>
+                </div>
+              </td>
+              <td>
+                <div class="celda-combinada">
+                  <img src="manada/amarilla.jpg" alt="PJOS Actual" />
+                  <span>Mohwa</span>
+                </div>
+              </td>
+              <td>
+                Esta insignia es el primer paso para fortalecer tus garras y colmillos para tus cacerías, brindándote la experiencia necesaria cuando salgas a una excursión o campamento. <br>
+                Baloo le explicaba a Mowgli y a cada cachorro del Pueblo Libre de los lobos, todo lo que tenían que saber para salir a recorrer sin contratiempos la selva de Seeonee y por eso, éste será tu punto de partida.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="celda-combinada">
+                  <img src="manada/pantanos/verde.jpg" alt="PJOS Actual" />
+                  <span>Dhâk</span>
+                </div>
+              </td>
+              <td>
+                Con esta insignia conocerás sobre la sustentabilidad y el tema de
+                <strong>no dejar rastro</strong>. <dr>
+                Harás conciencia sobre la manera en la que debes comportarte en los lugares que visitas, aprendiendo y adoptando mejores prácticas. El objetivo de la insignia Dhâk es mostrarte cómo cuidar los lugares que visites y cómo convivir con las personas y seres vivos que puedas encontrarte en tus cacerías.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h2 class="sub-seccion-titulo">Iniciativas Mundiales</h2>
+      <div class="contenedor-tabla">
+        <table class="tabla-insignias">
+          <thead>
+            <tr>
+              <th>Iniciativa</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+              style="vertical-align: middle; background-color: #f9fbe7"
+              >
+                <div class="celda-combinada">
+                  <img src="manada/pantanos/CN.jpg" alt="Champions for Nature" />
+                  <span>Champions for Nature</span>
+                </div>
+              </td>
+              <td>
+                Para tener un Seeonee siempre verde, necesitamos líderes y defensores. Si quieres descubrir más sobre la biodiversidad y los estilos de vida sustentables, el desafío Champions For Nature es para ti. 
+              </td>
+            </tr>
+            <tr>
+              <td
+              style="vertical-align: middle; background-color: #f9fbe7"
+              >
+                <div class="celda-combinada">
+                  <img src="manada/pantanos/SGS.jpg" alt="Scouts Go Solar" />
+                  <span>Scouts Go Solar</span>
+                </div>
+              </td>
+              <td>
+                Para innovadores que desean conocercómo las energías limpias pueden salvar al planeta, el desafío Scouts Go Solar nos lleva a conocer acerca de las energías alternativas y su uso para salvar el planeta.
+              </td>
+            </tr>
+            <tr>
+              <td
+              style="vertical-align: middle; background-color: #f9fbe7"
+              >
+                <div class="celda-combinada">
+                  <img src="manada/pantanos/PTT.jpg" alt="Plastic Tide Turners" />
+                  <span>Plastic Tide Turners</span>
+                </div>
+              </td>
+              <td>
+                Puedes cuidar el Waigunga con el desafío Plastic Tide Turner que te permitirá promover un planeta limpio y saludable a través de acciones relacionadas con la reducción, reutilización y reciclado del plástico. 
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <button
+        id="btn-volver-pantanos-insignias"
+        class="btn-regresar"
+        style="background-color: #2e7d32"
+      >
+        Volver a Pantanos
+      </button>
+    </div>
+
+    <div id="pantalla-dekkan" class="contenido-oculto pagina-rosa">
+      <h1 class="titulo-dekkan">Dekkan</h1>
+      <p class="intro-texto">
+        En este lugar, Hermano Gris será quien te retará a pensar más allá de lo
+        que puedes ver y tocar, será un espacio de mucha reflexión, solo piensa
+        que de ahí vienen los Dholes y qué te gustaría que ellos cambiaran, para
+        que en lugar de destruir la Selva y todo a su paso, tomen conciencia de
+        lo importante que somos todos y todas. El Dekkan es ese lugar donde la
+        cacería será más allá, tocará tu espíritu.
+      </p>
+      <div class="contenedor-explicacion">
+        <button
+          id="btn-malla-dekkan"
+          class="tarjeta-opcion-btn tarjeta-opcion-btnrosa"
+        >
+          <h3>Malla de Competencias</h3>
+          <p>
+            Deberás de trabajar sobre estos objetivos a través de las insignias,
+            actividades y campamentos.
+          </p>
+          <p style="text-align: left; margin-top: 8px">
+            &#10003; Planos de relación
+          </p>
+          <p style="text-align: left">&#10003; Preseas (Metacompetencias)</p>
+          <p style="text-align: left">
+            &#10003; Dentelladas (Saberes a desarrollar)
+          </p>
+        </button>
+        <button
+          id="btn-insignias-dekkan"
+          class="tarjeta-opcion-btn tarjeta-opcion-btnrosa"
+        >
+          <h3>Insignias</h3>
+          <img
+            src="manada/dekkan/paz.jpg"
+            alt="Insignias"
+            style="margin-top: 10px; width: 105%;"
+          />
+        </button>
+      </div>
+      <button id="btn-volver-manada-dekkan" class="btn-regresar-rosa">
+        Volver a Manada
+      </button>
+    </div>
+
+    <div id="pantalla-malla-dekkan" class="contenido-oculto pagina-rosa">
+      <h1 class="titulo-dekkan">Malla de Competencias</h1>
+      <p
+        class="subtitulo-principal"
+        style="color: #7d2e75; margin-bottom: 10px"
+      >
+        Hermano Gris - Paz y Participación Comunitaria
+      </p>
+      <p style="margin-bottom: 20px; color: #444">
+        Deberás de completar 7 dentelladas para obtener el cazadero
+      </p>
+
+      <div class="contenedor-tablarosa">
+        <table class="tabla-competenciasrosa">
+          <thead>
+            <tr>
+              <th>Planos de Relación</th>
+              <th>Preseas (Metacompetencias)</th>
+              <th>Dentelladas (Saberes a desarrollar)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-planorosa" rowspan="1">
+                <strong>Relación conmigo mismo</strong>
+              </td>
+              <td>
+                Escucha la opinión de sus pares y de los adultos para hacer
+                Siempre lo Mejor
+              </td>
+              <td class="col-dentelladasrosa">
+                <p>
+                  &#9744; Escucha la opinión de los demás para hacer siempre lo
+                  mejor
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="col-planorosa" rowspan="3">
+                <strong>Relación con los demás</strong>
+              </td>
+              <td>
+                Convive con los demás, practicando la empatía, la solidaridad y
+                el respeto hacia la diversidad social
+              </td>
+              <td class="col-dentelladasrosa">
+                <p>
+                  &#9744; Convive con los demás, practicando el respeto hacia la
+                  diversidad social
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Escucha la opinión de sus pares y de los adultos para hacer
+                Siempre lo Mejor
+              </td>
+              <td class="col-dentelladasrosa">
+                <p>
+                  &#9744; Participa activamente en procesos democráticos para la
+                  toma de desiciones, tendiendo al bien común
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Se siente orgulloso de su familia y de su patria, aprendiendo a
+                convivir desde la cultura de la paz
+              </td>
+              <td class="col-dentelladasrosa">
+                <p>&#9744; Siente orgullo de su familia y de su patria</p>
+                <p>&#9744; Aprende desde una cultura de paz</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="col-planorosa" rowspan="1">
+                <strong>Relación con el entorno</strong>
+              </td>
+              <td>
+                Reconoce el valor de su herencia cultural y respeta las culturas
+                diferentes de la propia
+              </td>
+              <td class="col-dentelladasrosa">
+                <p>&#9744; Reconoce el valor de su herencia cultural</p>
+                <p>&#9744; Respeta las culturas diferentes de la propia</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button id="btn-volver-dekkan" class="btn-regresar-rosa">
+        Volver a Dekkan
+      </button>
+    </div>
+
+    <div id="pantalla-insignias-dekkan" class="contenido-oculto pagina-rosa">
+      <h1 class="titulo-dekkan">Insignias e Iniciativas</h1>
+      <h2
+        class="sub-seccion-titulo"
+        style="color: #7d2e78; border-left-color: #7d2e78"
+      >
+        Especialidades
+      </h2>
+      <p>
+        Para dar inicio a la colocación de las insignias de especialidades se
+        entregará un elemento de identidad, es decir la cabeza de Kaa.
+      </p>
+
+      <div class="contenedor-tablarosa">
+        <table class="tabla-insigniasrosa">
+          <thead>
+            <tr>
+              <th>Esquema Anterior</th>
+              <th>PJOS (Actual)</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+                rowspan="3"
+                style="vertical-align: middle; background-color: #fae7fb"
+              >
+                <div class="celda-combinada">
+                  <img src="manada/dekkan/humanidades.jpg" alt="Esquema Anterior" />
+                  <span>Humanidades</span>
+                </div>
+              </td>
+              <td>
+                <div class="celda-combinada">
+                  <img src="manada/dekkan/PAC.jpg" alt="PJOS Actual" />
+                  <span>Paz y acciones humanitarias</span>
+                </div>
+              </td>
+              <td>
+                Área de especialidad <strong>Mysa</strong><br />
+                Fomenta la ciudadanía activa y la resolución pacífica de conflictos. Se centra en que el lobato entienda su entorno social, participe en procesos democráticos y realice acciones de servicio que impacten positivamente en su comunidad inmediata.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="celda-combinada">
+                  <img src="manada/dekkan/DI.jpg" alt="PJOS Actual" />
+                  <span>Diversidad e Inclusión</span>
+                </div>
+              </td>
+              <td>
+                Área de especialidad <strong>Kotick</strong><br />
+                Promueve el respeto absoluto por las diferencias humanas (capacidades, etnias, religiones o géneros). Se enfoca en derribar barreras y prejuicios, enseñando a la manada que la convivencia basada en la equidad y la empatía nos hace una sección más fuerte y unida.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="celda-combinada">
+                  <img src="manada/dekkan/CP.jpg" alt="PJOS Actual" />
+                  <span>Cultura y Patrimonio</span>
+                </div>
+              </td>
+              <td>
+                Área de especialidad <strong>Pukeena</strong><br />
+                Orientado al rescate y valoración de las raíces, tradiciones e historia local y nacional. Busca que los jóvenes reconozcan la riqueza de su legado cultural, protejan los monumentos o sitios históricos y fortalezcan su sentido de identidad y pertenencia.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="sub-seccion-titulo"style="color: #7d2e78; border-left-color: #7d2e78;">Iniciativas Mundiales</h2>
+      <div class="contenedor-tablarosa">
+        <table class="tabla-insigniasrosa">
+          <thead>
+            <tr>
+              <th>Iniciativa</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+              style="vertical-align: middle; background-color: #fae7fb"
+              >
+                <div class="celda-combinada">
+                  <img src="manada/dekkan/MOP.jpg" alt="Champions for Nature" />
+                  <span>Mensajeros de la Paz</span>
+                </div>
+              </td>
+              <td>
+                La Manada sabe qué tan importantees la Selva como quienes viven en ella. Mensajeros de la Paz es una cicatriz que puedes cazar si participas en una actividad organizada por tus Viejos Lobos, maestros o padres y acumulas al menos 300 horas de servicio relacionado con la Paz o el Desarrollo Comunitario. 
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <button
+        id="btn-volver-dekkan-insignias"
+        class="btn-regresar-rosa"
+      >
+        Volver a Dekkan
+      </button>
+    </div>
+
+    <div id="pantalla-colinas" class="contenido-oculto pagina-naranja">
+      <h1 class="titulo-colinas">Colinas del Seeonee</h1>
+      <p class="intro-texto">
+        Al salir de cacería con Baloo te darás cuenta que existen otros cubiles en la Selva del Seeonee, ahí podrás rastrear gamos diferentes y aprender técnicas nuevas para cazarlos; también conocerás otros sitios como la Aldea del Hombre, en donde existen otras especies de habitantes ¡Inicia esta exploración!
+      </p>
+      <div class="contenedor-explicacion">
+        <button id="btn-malla-colinas" class="tarjeta-opcion-btn tarjeta-opcion-btnnaranja">
+          <h3>Malla de Competencias</h3>
+          <p>
+            Deberás de trabajar sobre estos objetivos a través de las insignias,
+            actividades, campamentos y experiencias dentro o fuera del
+            movimiento.
+          </p>
+          <p style="text-align: left; margin-top: 8px">
+            &#10003; Planos de relación
+          </p>
+          <p style="text-align: left">&#10003; Preseas (Metacompetencias)</p>
+          <p style="text-align: left">
+            &#10003; Dentelladas (Saberes a desarrollar)
+          </p>
+        </button>
+        <button id="btn-insignias-colinas" class="tarjeta-opcion-btn tarjeta-opcion-btnnaranja">
+          <h3>Insignias</h3>
+          <img
+            src="manada/colinas/habilidades.jpg"
+            alt="Insignias"
+            style="margin-top: 10px; width: 100%; height: auto"
+          
+          />
+        </button>
+      </div>
+      <button id="btn-volver-manada-colinas" class="btn-regresar-naranja"
+      style="background-color: #ff9800"
+      >
+        Volver a Manada
+      </button>
+    </div>
+
+    <div id="pantalla-malla-colinas" class="contenido-oculto pagina-naranja">
+      <h1 class="titulo-colinas">Malla de Competencias</h1>
+      <p
+        class="subtitulo-principal"
+        style="color: #ff9800 ; margin-bottom: 10px"
+      >
+        Territorio de Baloo - Habilidades para la Vida
+      </p>
+      <p style="margin-bottom: 20px; color: #444">
+        Deberás de completar 6 dentelladas para obtener el cazadero
+      </p>
+
+      <div class="contenedor-tablanaranja">
+        <table class="tabla-competenciasnaranja">
+          <thead>
+            <tr>
+              <th>Planos de Relación</th>
+              <th>Preseas (Metacompetencias)</th>
+              <th>Dentelladas (Saberes a desarrollar)</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+          <td class="col-planonaranja" rowspan="2">
+            <strong>Relación conmigo mismo</strong>
+          </td>
+          <td>
+            Se reconoce como una persona integrada por los ámbitos corporal de la voluntad, intelectual, afectivo-emocional, y aplica las recomendaciones del adulto para su autocuidade, así como sobre el reconocimiento de sus capacidades y límites.
+          </td>
+          <td class="col-dentelladasnaranja">
+            <p>&#9744; Aplica las recomendaciones del adulto para su autocuidado </p>
+            <p>&#9744; Reconoce sus capacidades y límites </p>
+            <p>&#9744; Se reconoce como una persona integrada por el ámbito intelectual</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          Escucha la opinión de sus pares y de los adultos para hacer Siempre lo mejor
+          </td>
+          <td class="col-dentelladasnaranja">
+            <p>&#9744; Escucha la opinión de sus pares y de los adultos </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="col-planonaranja" rowspan="2">
+            <strong>Relación con los demás</strong>
+          </td>
+          <td>
+            Convive con los demás, practicando la empatía, la solidaridad y
+            el respeto hacia la diversidad social
+          </td>
+          <td class="col-dentelladasnaranja">
+            <p>
+              &#9744; Convive con los demás, practicando la empatía, la solidaridad y el respeto
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Escucha la opinión de sus pares y de los adultos para hacer
+            Siempre lo Mejor
+          </td>
+          <td class="col-dentelladasnaranja">
+            <p>
+              &#9744; Trabaja en equipo
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="col-planonaranja" rowspan="1">
+            <strong>Relación con el entorno</strong>
+          </td>
+          <td>
+            Conoce la via al aire libre, respetando el entorno natural
+          </td>
+          <td class="col-dentelladasnaranja">
+            <p>&#9744; Identifica herramientas o acciones que hacen bien a su entorno natural</p>
+          </td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+      <button
+        id="btn-volver-colinas"
+        class="btn-regresar-naranja"
+        style="background-color: #ff9800"
+      >
+        Volver a Colinas del Seeonee
+      </button>
+    </div>
+
+    <div id="pantalla-insignias-colinas" class="contenido-oculto pagina-naranja">
+      <h1 class="titulo-colinas">Insignias e Iniciativas</h1>
+      <h2 class="sub-seccion-titulo"
+      style="color: #ff9800; border-left-color: #ff9800">Especialidades</h2>
+      <p>
+        Para dar inicio a la colocación de las insignias de especialidades se
+        entregará un elemento de identidad, es decir la cabeza de Kaa.
+      </p>
+
+      <div class="contenedor-tablanaranja">
+        <table class="tabla-insigniasnaranja">
+          <thead>
+            <tr>
+              <th>Esquema Anterior</th>
+              <th>PJOS (Actual)</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+                rowspan="2"
+                style="vertical-align: middle; background-color: #ecd7b9"
+              >
+                <div class="celda-combinada">
+                  <img src="manada/colinas/TC.jpg" alt="Esquema Anterior" />
+                  <span>Tecnología y Ciencia</span>
+                </div>
+              </td>
+              <td>
+                <div class="celda-combinada">
+                  <img src="manada/colinas/Emprendimiento.jpg" alt="PJOS Actual" />
+                  <span>Emprendimiento</span>
+                </div>
+              </td>
+              <td>
+                Área de especialidad <strong>Darzee</strong><br />
+                Desarrolla el pensamiento creativo y la capacidad de convertir ideas en soluciones. Se centra en la gestión de recursos, la planificación de pequeños proyectos y el aprendizaje del valor del trabajo y el ahorro para alcanzar metas propias.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="celda-combinada">
+                  <img src="manada/colinas/Tecnologia.jpg" alt="PJOS Actual" />
+                  <span>Tecnología e Innovación</span>
+                </div>
+              </td>
+              <td>
+                Área de especialidad <strong>Darzee</strong><br />
+                Promueve la curiosidad por el funcionamiento de las cosas y el uso ético de las herramientas digitales. Se enfoca en resolver problemas cotidianos mediante la ciencia, la experimentación y la adaptación a los cambios del mundo moderno.
+              </td>
+            </tr>
+            <tr>
+            <td
+              rowspan="2"
+              style="vertical-align: middle; background-color: #ecd7b9"
+            >
+              <div class="celda-combinada">
+                <img src="manada/colinas/EC.jpg" alt="Esquema Anterior" />
+                <span>Expresión y Comunicación</span>
+              </div>
+            </td>
+            <td>
+              <div class="celda-combinada">
+                <img src="manada/colinas/Artes.jpg" alt="PJOS Actual" />
+                <span>Artes</span>
+              </div>
+            </td>
+            <td>
+              Área de especialidad <strong>Mao/Mor</strong><br />
+              Impulsa la expresión personal a través de lenguajes creativos como la música, el teatro, la pintura o la danza. Busca que el joven explore su sensibilidad, mejore su comunicación no verbal y valore la belleza en todas sus manifestaciones.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="celda-combinada">
+                <img src="manada/colinas/Liderazgo.jpg" alt="PJOS Actual" />
+                <span>Liderazgo</span>
+              </div>
+            </td>
+            <td>
+              Área de especialidad <strong>Darzee</strong><br />
+              Orientado a la toma de decisiones, la motivación de equipos y la responsabilidad. Fomenta que el lobato aprenda a guiar a sus pares con el ejemplo, a escuchar activamente y a coordinar esfuerzos para lograr un objetivo común en la manada.
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="sub-seccion-titulo"
+      style="color: #ff9800; border-left-color: #ff9800"
+      >
+      Aventuras en la Naturaleza</h2>
+      <div class="contenedor-tablanaranja">
+        <table class="tabla-insigniasnaranja">
+          <thead>
+            <tr>
+              <th>Esquema Anterior</th>
+              <th>PJOS (Actual)</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+                rowspan="2"
+                style="vertical-align: middle; background-color: #ecd7b9"
+              >
+                <div class="celda-combinada">
+                  <img src="val.png" alt="Esquema Anterior" style="width: 150px;"/>
+                  <span>Vida al Aire Libre</span>
+                </div>
+              </td>
+              <td>
+                <div class="celda-combinada">
+                  <img src="manada/amarilla.jpg" alt="PJOS Actual" />
+                  <span>Mohwa</span>
+                </div>
+              </td>
+              <td>
+                Esta insignia es el primer paso para fortalecer tus garras y colmillos para tus cacerías, brindándote la experiencia necesaria cuando salgas a una excursión o campamento. <br>
+                Baloo le explicaba a Mowgli y a cada cachorro del Pueblo Libre de los lobos, todo lo que tenían que saber para salir a recorrer sin contratiempos la selva de Seeonee y por eso, éste será tu punto de partida.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="celda-combinada">
+                  <img src="manada/colinas/roja.jpg" alt="PJOS Actual" />
+                  <span>Flor Roja</span>
+                </div>
+              </td>
+              <td>
+              Esta insignia la podrás obtener cuando hayas vivido varias cacerías lejos de tu cubil, en distintas selvas; disfrutando las Aventuras en la Naturaleza de forma responsable, divertida y segura. Deberás probar también que lo que conoces y sabes hacer lo compartes y lo pones al servicio de los demás. <br>
+              Es capaz de resolver problemas con sus habilidades de cabuyería; que sabe pasar varias lunas fuera de su cubil de manera segura y cómoda, en una comunión respetuosa y armónica con la Naturaleza; que puede explorar con éxito la selva y aprender cosas nuevas en cada nueva cacería.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <button
+        id="btn-volver-colinas-insignias"
+        class="btn-regresar-naranja"
+        style="background-color: #ff9800"
+      >
+        Volver a Colinas del Seeonee
+      </button>
+    </div>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
