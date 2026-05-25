@@ -191,3 +191,19 @@ document.getElementById('btn-volver-manada-cubil').onclick = function () {
   pCubil.classList.add('contenido-oculto');
   pManada.classList.remove('contenido-oculto');
 };
+
+// ====== AUTO-SCROLL AL CAMBIAR PANTALLAS ======
+document.addEventListener('click', function(event) {
+  // Verificamos si el elemento clickeado es un botón o está dentro de uno
+  const isButton = event.target.closest('button') || event.target.classList.contains('btn-rama') || event.target.classList.contains('btn-territorio');
+  
+  if (isButton) {
+    // Esperamos un milisegundo a que se procese el cambio de clase 'contenido-oculto'
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'instant' // 'instant' para que el usuario no vea el salto, 'smooth' para deslizar
+      });
+    }, 10);
+  }
+});
