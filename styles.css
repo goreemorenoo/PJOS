@@ -226,6 +226,22 @@ body {
 }
 
 /* --- ESTILOS DE PÁGINAS TEMÁTICAS --- */
+* Contenedor flexible para alinear los elementos */
+.encabezado-con-imagen {
+  display: flex;
+  align-items: center; /* Alinea verticalmente al centro */
+  justify-content: center; /* Centra el grupo en la pantalla */
+  gap: 20px; /* Espacio entre el título y la imagen */
+  margin-bottom: 15px; /* Espacio antes del párrafo */
+}
+
+/* Ajustes para la imagen al lado del título */
+.img-titulo {
+  width: 60px; /* Ajusta el tamaño según necesites */
+  height: auto;
+  border-radius: 8px; /* Opcional: bordes redondeados */
+}
+
 .pagina-verde {
   background-color: #e8f5e9 !important;
   text-align: center;
