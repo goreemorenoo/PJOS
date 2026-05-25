@@ -288,6 +288,8 @@ body {
   color: #2e7d32;
   font-size: 2.2rem;
   margin-bottom: 15px;
+  margin: 0; /* Quita márgenes por defecto para que no se desfase verticalmente */
+  font-size: 2.5rem; /* Ajusta según el diseño de PJOS */
 }
 .titulo-dekkan {
   color: #7d2e65;
