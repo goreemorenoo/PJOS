@@ -108,7 +108,7 @@ body {
 .btn-regresar-rosa,
 .btn-regresar-naranja,
 .btn-regresar-azul,
-.btn-regresar-primer {
+.btn-regresar-rastro {
   color: white;
   border: none;
   padding: 12px 35px;
@@ -152,10 +152,10 @@ body {
   transform: scale(1.03);
 }
 
-.btn-regresar-primer {
+.btn-regresar-rastro {
   background-color: #2e697d;
 }
-.btn-regresar-primer:hover {
+.btn-regresar-rastro:hover {
   background-color: #1f585c;
   transform: scale(1.03);
 }

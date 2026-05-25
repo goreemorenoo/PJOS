@@ -4,7 +4,7 @@ const pRamas = document.getElementById('pantalla-ramas');
 const pManada = document.getElementById('pantalla-manada');
 
 // Pantallas Primer Rastro 
-const pRastro = document.getElementById('pantalla-primer-rastro');
+const pRastro = document.getElementById('pantalla-rastro');
 
 // Pantallas del Eje Pantanos (Verde)
 const pPantanos = document.getElementById('pantalla-pantanos');
@@ -49,6 +49,17 @@ function avisoDesarrollo() {
 document.getElementById('btn-regresar-ramas').onclick = function () {
   pManada.classList.add('contenido-oculto');
   pRamas.classList.remove('contenido-oculto');
+};
+
+// ====== NAVEGACIÓN INTERNA: RASTRO ======
+document.querySelector('.btn-rastro').onclick = function () {
+  pManada.classList.add('contenido-oculto');
+  pRastro.classList.remove('contenido-oculto');
+};
+
+document.getElementById('btn-volver-manada-rastro').onclick = function () {
+  pRastro.classList.add('contenido-oculto');
+  pManada.classList.remove('contenido-oculto');
 };
 
 // ====== NAVEGACIÓN INTERNA: PANTANOS DEL NORTE ======
