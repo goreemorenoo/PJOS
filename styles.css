@@ -106,7 +106,8 @@ body {
 /* --- BOTONES DE REGRESO --- */
 .btn-regresar,
 .btn-regresar-rosa,
-.btn-regresar-naranja {
+.btn-regresar-naranja,
+.btn-regresar-azul {
   color: white;
   border: none;
   padding: 12px 35px;
@@ -139,6 +140,14 @@ body {
 }
 .btn-regresar-naranja:hover {
   background-color: #5c431f;
+  transform: scale(1.03);
+}
+
+.btn-regresar-azul {
+  background-color: #2e697d;
+}
+.btn-regresar-azul:hover {
+  background-color: #1f585c;
   transform: scale(1.03);
 }
 
@@ -235,6 +244,16 @@ body {
   margin: 0 auto;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
+.pagina-azul {
+  background-color: #e8f5f5 !important;
+  text-align: center;
+  padding: 40px 60px;
+  border-radius: 24px;
+  max-width: 850px;
+  width: 95%;
+  margin: 0 auto;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
 
 .titulo-pantanos {
   color: #2e7d32;
@@ -248,6 +267,11 @@ body {
 }
 .titulo-colinas {
   color: #7d5f2e;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+.titulo-cubil {
+  color: #2e7a7d;
   font-size: 2.2rem;
   margin-bottom: 15px;
 }
@@ -324,10 +348,19 @@ body {
   color: #7d5f2e;
 }
 
+.pagina-azul .tarjeta-opcion-btn:hover {
+  border-color: #2e727d;
+  box-shadow: 0 10px 20px rgba(125, 46, 120, 0.15);
+}
+.pagina-azul .tarjeta-opcion-btn h3 {
+  color: #2e797d;
+}
+
 /* --- ESTRUCTURAS DE TABLAS --- */
 .contenedor-tabla,
 .contenedor-tablarosa,
-.contenedor-tablanaranja {
+.contenedor-tablanaranja,
+.contenedor-tablaazul {
   width: 100%;
   overflow-x: auto;
   background: white;
@@ -361,6 +394,12 @@ table {
   color: white;
   padding: 14px;
 }
+.tabla-competenciasazul th,
+.tabla-insigniasazul th {
+  background-color: #2e7a7d;
+  color: white;
+  padding: 14px;
+}
 
 /* Celdas */
 td {
@@ -390,6 +429,12 @@ td {
   text-align: center;
   border-right: 2px solid #e0e0e0;
 }
+.tabla-competenciasazul td[rowspan],
+.tabla-insigniasazul td[rowspan] {
+  background-color: #e7f9fb;
+  text-align: center;
+  border-right: 2px solid #e0e0e0;
+}
 
 .col-plano {
   color: #2e7d32;
@@ -401,6 +446,10 @@ td {
 }
 .col-planonaranja {
   color: #7d652e;
+  font-weight: bold;
+}
+.col-planoazul {
+  color: #2e727d;
   font-weight: bold;
 }
 
@@ -423,6 +472,10 @@ td {
 .pagina-naranja .sub-seccion-titulo {
   color: #7d5f2e;
   border-left-color: #7d5c2e;
+}
+.pagina-azul .sub-seccion-titulo {
+  color: #2e727d;
+  border-left-color: #2e7a7d;
 }
 
 .celda-combinada {
@@ -449,6 +502,9 @@ td {
 .tabla-insigniasnaranja .celda-combinada img {
   border-color: #7d5c2e;
 }
+.tabla-insigniasazul .celda-combinada img {
+  border-color: #2e6d7d;
+}
 
 /* --- CLASE DE VISIBILIDAD --- */
 .contenido-oculto {
@@ -464,7 +520,8 @@ td {
   .bienvenida-container,
   .pagina-verde,
   .pagina-rosa,
-  .pagina-naranja {
+  .pagina-naranja,
+  .pagina-azul {
     padding: 30px 20px;
   }
 }

@@ -18,10 +18,10 @@ const pColinas = document.getElementById('pantalla-colinas');
 const pMallaColinas = document.getElementById('pantalla-malla-colinas');
 const pInsigniasColinas = document.getElementById('pantalla-insignias-colinas');
 
-// Pantallas del Eje Cubil (Azul)
-//const pCubil = document.getElementById('pantalla-cubil');
-//const pMallaCubil = document.getElementById('pantalla-malla-cubil');
-//const pInsigniasCubil = document.getElementById('pantalla-insignias-cubil');
+//Pantallas del Eje Cubil (Azul)
+const pCubil = document.getElementById('pantalla-cubil');
+const pMallaCubil = document.getElementById('pantalla-malla-cubil');
+const pInsigniasCubil = document.getElementById('pantalla-insignias-cubil');
 
 // ====== NAVEGACIÓN FLUJO INICIAL ======
 document.getElementById('btn-inicio').onclick = function () {
@@ -159,5 +159,37 @@ document.getElementById('btn-volver-colinas-insignias').onclick = function () {
 
 document.getElementById('btn-volver-manada-colinas').onclick = function () {
   pColinas.classList.add('contenido-oculto');
+  pManada.classList.remove('contenido-oculto');
+};
+
+// ====== NAVEGACIÓN INTERNA: CUBIL ======
+document.querySelector('.btn-cubil').onclick = function () {
+  pManada.classList.add('contenido-oculto');
+  pCubil.classList.remove('contenido-oculto');
+};
+
+document.getElementById('btn-malla-cubil').onclick = function () {
+  pCubil.classList.add('contenido-oculto');
+  pMallaCubil.classList.remove('contenido-oculto');
+};
+
+document.getElementById('btn-insignias-cubil').onclick = function () {
+  pCubil.classList.add('contenido-oculto');
+  pInsigniasCubil.classList.remove('contenido-oculto');
+};
+
+// Retornos de Cubil
+document.getElementById('btn-volver-cubil').onclick = function () {
+  pMallaCubil.classList.add('contenido-oculto');
+  pCubil.classList.remove('contenido-oculto');
+};
+
+document.getElementById('btn-volver-cubil-insignias').onclick = function () {
+  pInsigniasCubil.classList.add('contenido-oculto');
+  pCubil.classList.remove('contenido-oculto');
+};
+
+document.getElementById('btn-volver-manada-cubil').onclick = function () {
+  pCubil.classList.add('contenido-oculto');
   pManada.classList.remove('contenido-oculto');
 };
