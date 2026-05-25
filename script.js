@@ -1,10 +1,23 @@
+// ====== FUNCIÓN MAESTRA DE NAVEGACIÓN ======
+// Esta función oculta una pantalla, muestra la otra y reinicia el scroll arriba
+function navegar(pantallaOcultar, pantallaMostrar) {
+  pantallaOcultar.classList.add('contenido-oculto');
+  pantallaMostrar.classList.remove('contenido-oculto');
+  
+  // Triple método para asegurar que el scroll suba en cualquier navegador
+  window.scrollTo(0, 0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+}
+
+function avisoDesarrollo() {
+  alert("Sección en desarrollo:)) ");
+}
+
 // ====== CONSTANTES DE PANTALLAS ======
 const pBienvenida = document.getElementById('pantalla-bienvenida');
 const pRamas = document.getElementById('pantalla-ramas');
 const pManada = document.getElementById('pantalla-manada');
-
-// Pantallas Primer Rastro 
-//const pRastro = document.getElementById('pantalla-rastro');
 
 // Pantallas del Eje Pantanos (Verde)
 const pPantanos = document.getElementById('pantalla-pantanos');
@@ -21,189 +34,130 @@ const pColinas = document.getElementById('pantalla-colinas');
 const pMallaColinas = document.getElementById('pantalla-malla-colinas');
 const pInsigniasColinas = document.getElementById('pantalla-insignias-colinas');
 
-//Pantallas del Eje Cubil (Azul)
+// Pantallas del Eje Cubil (Azul)
 const pCubil = document.getElementById('pantalla-cubil');
 const pMallaCubil = document.getElementById('pantalla-malla-cubil');
 const pInsigniasCubil = document.getElementById('pantalla-insignias-cubil');
 
 // ====== NAVEGACIÓN FLUJO INICIAL ======
 document.getElementById('btn-inicio').onclick = function () {
-  pBienvenida.classList.add('contenido-oculto');
-  pRamas.classList.remove('contenido-oculto');
+  navegar(pBienvenida, pRamas);
 };
 
 document.getElementById('btn-regresar-bienvenida').onclick = function () {
-  pRamas.classList.add('contenido-oculto');
-  pBienvenida.classList.remove('contenido-oculto');
+  navegar(pRamas, pBienvenida);
 };
 
 document.getElementById('btn-ir-manada').onclick = function () {
-  pRamas.classList.add('contenido-oculto');
-  pManada.classList.remove('contenido-oculto');
+  navegar(pRamas, pManada);
 };
-
-function avisoDesarrollo() {
-  alert("Sección en desarrollo:)) ");
-}
 
 document.getElementById('btn-regresar-ramas').onclick = function () {
-  pManada.classList.add('contenido-oculto');
-  pRamas.classList.remove('contenido-oculto');
+  navegar(pManada, pRamas);
 };
-
-// ====== NAVEGACIÓN INTERNA: RASTRO ======
-//document.querySelector('.btn-rastro').onclick = function () {
- // pManada.classList.add('contenido-oculto');
- // pRastro.classList.remove('contenido-oculto');
-//};
-
-//document.getElementById('btn-volver-manada-rastro').onclick = function () {
- // pRastro.classList.add('contenido-oculto');
- // pManada.classList.remove('contenido-oculto');
-//};
 
 // ====== NAVEGACIÓN INTERNA: PANTANOS DEL NORTE ======
 document.querySelector('.btn-pantanos').onclick = function () {
-  pManada.classList.add('contenido-oculto');
-  pPantanos.classList.remove('contenido-oculto');
+  navegar(pManada, pPantanos);
 };
 
 document.getElementById('btn-malla-pantanos').onclick = function () {
-  pPantanos.classList.add('contenido-oculto');
-  pMallaPantanos.classList.remove('contenido-oculto');
+  navegar(pPantanos, pMallaPantanos);
 };
 
 document.getElementById('btn-insignias-pantanos').onclick = function () {
-  pPantanos.classList.add('contenido-oculto');
-  pInsigniasPantanos.classList.remove('contenido-oculto');
+  navegar(pPantanos, pInsigniasPantanos);
 };
 
 // Retornos de Pantanos
 document.getElementById('btn-volver-pantanos').onclick = function () {
-  pMallaPantanos.classList.add('contenido-oculto');
-  pPantanos.classList.remove('contenido-oculto');
+  navegar(pMallaPantanos, pPantanos);
 };
 
 document.getElementById('btn-volver-pantanos-insignias').onclick = function () {
-  pInsigniasPantanos.classList.add('contenido-oculto');
-  pPantanos.classList.remove('contenido-oculto');
+  navegar(pInsigniasPantanos, pPantanos);
 };
 
 document.getElementById('btn-volver-manada-pantanos').onclick = function () {
-  pPantanos.classList.add('contenido-oculto');
-  pManada.classList.remove('contenido-oculto');
+  navegar(pPantanos, pManada);
 };
 
 // ====== NAVEGACIÓN INTERNA: DEKKAN ======
 document.querySelector('.btn-dekkan').onclick = function () {
-  pManada.classList.add('contenido-oculto');
-  pDekkan.classList.remove('contenido-oculto');
+  navegar(pManada, pDekkan);
 };
 
 document.getElementById('btn-malla-dekkan').onclick = function () {
-  pDekkan.classList.add('contenido-oculto');
-  pMallaDekkan.classList.remove('contenido-oculto');
+  navegar(pDekkan, pMallaDekkan);
 };
 
 document.getElementById('btn-insignias-dekkan').onclick = function () {
-  pDekkan.classList.add('contenido-oculto');
-  pInsigniasDekkan.classList.remove('contenido-oculto');
+  navegar(pDekkan, pInsigniasDekkan);
 };
 
-// Retornos de Dekkan
+// Retornos de Dekkan (Usando clase si hay varios, o ID único)
 document.querySelectorAll('#btn-volver-dekkan').forEach((btn) => {
   btn.onclick = function () {
-    pMallaDekkan.classList.add('contenido-oculto');
-    pDekkan.classList.remove('contenido-oculto');
+    navegar(pMallaDekkan, pDekkan);
   };
 });
 
 document.getElementById('btn-volver-dekkan-insignias').onclick = function () {
-  pInsigniasDekkan.classList.add('contenido-oculto');
-  pDekkan.classList.remove('contenido-oculto');
+  navegar(pInsigniasDekkan, pDekkan);
 };
 
 document.getElementById('btn-volver-manada-dekkan').onclick = function () {
-  pDekkan.classList.add('contenido-oculto');
-  pManada.classList.remove('contenido-oculto');
+  navegar(pDekkan, pManada);
 };
 
 // ====== NAVEGACIÓN INTERNA: COLINAS DEL SEEONE ======
 document.querySelector('.btn-colinas').onclick = function () {
-  pManada.classList.add('contenido-oculto');
-  pColinas.classList.remove('contenido-oculto');
+  navegar(pManada, pColinas);
 };
 
 document.getElementById('btn-malla-colinas').onclick = function () {
-  pColinas.classList.add('contenido-oculto');
-  pMallaColinas.classList.remove('contenido-oculto');
+  navegar(pColinas, pMallaColinas);
 };
 
 document.getElementById('btn-insignias-colinas').onclick = function () {
-  pColinas.classList.add('contenido-oculto');
-  pInsigniasColinas.classList.remove('contenido-oculto');
+  navegar(pColinas, pInsigniasColinas);
 };
 
 // Retornos de Colinas
 document.getElementById('btn-volver-colinas').onclick = function () {
-  pMallaColinas.classList.add('contenido-oculto');
-  pColinas.classList.remove('contenido-oculto');
+  navegar(pMallaColinas, pColinas);
 };
 
 document.getElementById('btn-volver-colinas-insignias').onclick = function () {
-  pInsigniasColinas.classList.add('contenido-oculto');
-  pColinas.classList.remove('contenido-oculto');
+  navegar(pInsigniasColinas, pColinas);
 };
 
 document.getElementById('btn-volver-manada-colinas').onclick = function () {
-  pColinas.classList.add('contenido-oculto');
-  pManada.classList.remove('contenido-oculto');
+  navegar(pColinas, pManada);
 };
 
 // ====== NAVEGACIÓN INTERNA: CUBIL ======
 document.querySelector('.btn-cubil').onclick = function () {
-  pManada.classList.add('contenido-oculto');
-  pCubil.classList.remove('contenido-oculto');
+  navegar(pManada, pCubil);
 };
 
 document.getElementById('btn-malla-cubil').onclick = function () {
-  pCubil.classList.add('contenido-oculto');
-  pMallaCubil.classList.remove('contenido-oculto');
+  navegar(pCubil, pMallaCubil);
 };
 
 document.getElementById('btn-insignias-cubil').onclick = function () {
-  pCubil.classList.add('contenido-oculto');
-  pInsigniasCubil.classList.remove('contenido-oculto');
+  navegar(pCubil, pInsigniasCubil);
 };
 
 // Retornos de Cubil
 document.getElementById('btn-volver-cubil').onclick = function () {
-  pMallaCubil.classList.add('contenido-oculto');
-  pCubil.classList.remove('contenido-oculto');
+  navegar(pMallaCubil, pCubil);
 };
 
 document.getElementById('btn-volver-cubil-insignias').onclick = function () {
-  pInsigniasCubil.classList.add('contenido-oculto');
-  pCubil.classList.remove('contenido-oculto');
+  navegar(pInsigniasCubil, pCubil);
 };
 
 document.getElementById('btn-volver-manada-cubil').onclick = function () {
-  pCubil.classList.add('contenido-oculto');
-  pManada.classList.remove('contenido-oculto');
+  navegar(pCubil, pManada);
 };
-
-// ====== AUTO-SCROLL AL CAMBIAR PANTALLAS ======
-document.addEventListener('click', function(event) {
-  // Verificamos si el elemento clickeado es un botón o está dentro de uno
-  const isButton = event.target.closest('button') || event.target.classList.contains('btn-rama') || event.target.classList.contains('btn-territorio');
-  
-  if (isButton) {
-    // Esperamos un milisegundo a que se procese el cambio de clase 'contenido-oculto'
-    setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'instant' // 'instant' para que el usuario no vea el salto, 'smooth' para deslizar
-      });
-    }, 10);
-  }
-});
