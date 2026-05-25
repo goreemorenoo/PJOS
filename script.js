@@ -3,6 +3,9 @@ const pBienvenida = document.getElementById('pantalla-bienvenida');
 const pRamas = document.getElementById('pantalla-ramas');
 const pManada = document.getElementById('pantalla-manada');
 
+// Pantallas Primer Rastro 
+const pRastro = document.getElementById('pantalla-primer-rastro');
+
 // Pantallas del Eje Pantanos (Verde)
 const pPantanos = document.getElementById('pantalla-pantanos');
 const pMallaPantanos = document.getElementById('pantalla-malla');

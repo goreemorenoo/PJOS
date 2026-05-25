@@ -107,7 +107,8 @@ body {
 .btn-regresar,
 .btn-regresar-rosa,
 .btn-regresar-naranja,
-.btn-regresar-azul {
+.btn-regresar-azul,
+.btn-regresar-primer {
   color: white;
   border: none;
   padding: 12px 35px;
@@ -147,6 +148,14 @@ body {
   background-color: #2e697d;
 }
 .btn-regresar-azul:hover {
+  background-color: #1f585c;
+  transform: scale(1.03);
+}
+
+.btn-regresar-primer {
+  background-color: #2e697d;
+}
+.btn-regresar-primer:hover {
   background-color: #1f585c;
   transform: scale(1.03);
 }
@@ -203,6 +212,9 @@ body {
 }
 .btn-cubil {
   background-color: #1565c0;
+}
+.btn-rastro {
+  background-color: #e3d75c;
 }
 
 .img-lateral {
