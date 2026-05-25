@@ -39,20 +39,9 @@ document.getElementById('btn-ir-manada').onclick = function () {
   pManada.classList.remove('contenido-oculto');
 };
 
-//document.getElementById('btn-ir-tropa').onclick = function() {
-// pRamas.classList.add('contenido-oculto');
-//pTropa.classList.remove('contenido-oculto');
-//};
-
-//document.getElementById('btn-ir-comunidad').onclick = function() {
-// pRamas.classList.add('contenido-oculto');
-// pComunidad.classList.remove('contenido-oculto');
-//};
-
-//document.getElementById('btn-ir-clan').onclick = function() {
-//  pRamas.classList.add('contenido-oculto');
-//  pClan.classList.remove('contenido-oculto');
-//};
+function avisoDesarrollo() {
+  alert("Sección en desarrollo:)) ");
+}
 
 document.getElementById('btn-regresar-ramas').onclick = function () {
   pManada.classList.add('contenido-oculto');
@@ -106,11 +95,6 @@ document.getElementById('btn-insignias-dekkan').onclick = function () {
   pDekkan.classList.add('contenido-oculto');
   pInsigniasDekkan.classList.remove('contenido-oculto');
 };
-
-// Alerta preventiva en caso de que no tengas creada la pantalla de insignias de Dekkan aún
-//document.getElementById('btn-insignias-dekkan').onclick = function () {
-//alert('La sección de Insignias de Dekkan se encuentra en desarrollo.');
-//};
 
 // Retornos de Dekkan
 document.querySelectorAll('#btn-volver-dekkan').forEach((btn) => {
