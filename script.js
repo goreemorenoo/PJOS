@@ -19,6 +19,9 @@ const pBienvenida = document.getElementById('pantalla-bienvenida');
 const pRamas = document.getElementById('pantalla-ramas');
 const pManada = document.getElementById('pantalla-manada');
 
+//Pantalla Juego
+const pJuego = document.getElementById('pantalla-juego');
+
 //Pantalla Primer Rastro
 const pRastro = document.getElementById('pantalla-rastro');
 
@@ -185,4 +188,14 @@ document.getElementById('btn-volver-cubil-insignias').onclick = function () {
 
 document.getElementById('btn-volver-manada-cubil').onclick = function () {
   navegar(pCubil, pManada);
+};
+
+//JUEGO
+document.querySelector('.btn-juego').onclick = function () {
+  navegar(pManada, pJuego);
+};
+
+// Botón de regreso
+document.getElementById('btn-volver-manada-juego').onclick = function () {
+  navegar(pJuego, pManada);
 };
