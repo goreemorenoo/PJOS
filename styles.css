@@ -238,13 +238,10 @@ body {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  width: 40%;    /* Ocupará el 30% del ancho de la fila */
-  max-width: 500px; /* Pero nunca medirá más de 120px para no verse gigante */
-  height: auto;
 }
 
 .img-principal, .img-revelada {
-  width: 100px; /* Ajusta el tamaño según tus imágenes */
+  width: 40%; /* Ajusta el tamaño según tus imágenes */
   height: auto;
   border-radius: 10px;
 }
