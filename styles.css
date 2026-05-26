@@ -238,8 +238,8 @@ body {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  width: 30%;    /* Ocupará el 30% del ancho de la fila */
-  max-width: 120px; /* Pero nunca medirá más de 120px para no verse gigante */
+  width: 40%;    /* Ocupará el 30% del ancho de la fila */
+  max-width: 500px; /* Pero nunca medirá más de 120px para no verse gigante */
   height: auto;
 }
 
