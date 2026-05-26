@@ -226,56 +226,68 @@ body {
 }
 
 /* --- ESTILOS DE PÁGINAS TEMÁTICAS --- */
-.contenedor-retos {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  margin: 20px 0;
-}
+/* --- NUEVOS ESTILOS PARA EL BOTÓN DE REVELADO --- */
 
-.fila-revelacion {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-
-.img-principal, .img-revelada {
-  width: 40%; /* Ajusta el tamaño según tus imágenes */
-  height: auto;
-  border-radius: 10px;
-}
-
-.btn-flecha {
-  background: #7b09a4; 
+/* Estilo del botón "Ver completo" - similar a .btn-regresar */
+.btn-completo {
+  background-color: #8d8b39; /* Color ocre de la sección */
   color: white;
   border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 1.2rem;
-  transition: transform 0.3s;
+  margin-top: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.btn-flecha:hover {
-  transform: scale(1.1);
+.btn-completo:hover {
+  transform: translateY(-2px);
+  background-color: #a3a14e; /* Tono un poco más claro al hover */
 }
 
-/* Estado oculto */
+.btn-completo:active {
+  transform: translateY(0);
+}
+
+/* --- AJUSTES DE MAQUETACIÓN --- */
+
+/* Asegurar que las tarjetas de revelación usen flex para centrar contenido */
+.tarjeta-revelacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estado oculto con display flex para centrado */
 .revelar-oculto {
   opacity: 0;
   transform: translateX(-20px);
   transition: all 0.5s ease;
   visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Estado visible (se activa con JS) */
+/* Estado visible */
 .mostrar-insignia {
   opacity: 1;
   transform: translateX(0);
   visibility: visible;
 }
+
+/* Tamaño de la imagen revelada final */
+.img-revelada-final {
+  width: 130px; /* Ajusta según el diseño */
+  height: auto;
+  border-radius: 12px;
+}
+
 
 /* Contenedor flexible para alinear los elementos */
 .encabezado-con-imagen {

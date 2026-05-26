@@ -60,9 +60,16 @@ document.getElementById('btn-regresar-ramas').onclick = function () {
 };
 
 // NAVEGACION Y FUNCION RASTRO
-function revelarInsignia(id) {
-  const elemento = document.getElementById(id);
-  elemento.classList.toggle('mostrar-insignia');
+function revelarInsignia(insigniaId, btnId) {
+  const insignia = document.getElementById(insigniaId);
+  const boton = document.getElementById(btnId);
+  
+  if (insignia && boton) {
+      // Muestra la insignia
+      insignia.classList.add('mostrar-insignia');
+      // Oculta el botón suavemente
+      boton.style.display = 'none';
+  }
 }
 
 document.querySelector('.btn-rastro').onclick = function () {
