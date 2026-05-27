@@ -199,3 +199,39 @@ document.querySelector('.btn-juego').onclick = function () {
 document.getElementById('btn-volver-manada-juego').onclick = function () {
   navegar(pJuego, pManada);
 };
+// Lógica Drag & Drop
+const piezasJuego = document.querySelectorAll('.pieza-insignia');
+const zonasJuego = document.querySelectorAll('.zona-drop');
+
+piezasJuego.forEach(p => {
+    p.addEventListener('dragstart', (e) => e.dataTransfer.setData('idPieza', e.target.id));
+});
+
+zonasJuego.forEach(z => {
+    z.addEventListener('dragover', (e) => e.preventDefault());
+    z.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const id = e.dataTransfer.getData('idPieza');
+        const pieza = document.getElementById(id);
+        if (pieza) z.appendChild(pieza);
+    });
+});
+
+// Botón Terminar
+const btnCheck = document.getElementById('btn-terminar-juego');
+if(btnCheck) {
+    btnCheck.onclick = function() {
+        document.querySelectorAll('.slot-juego').forEach(slot => {
+            const correcta = slot.dataset.categoria;
+            const piezasEnZona = slot.querySelectorAll('.pieza-insignia');
+            let aciertos = 0;
+            piezasEnZona.forEach(p => { if(p.dataset.correcta === correcta) aciertos++; });
+
+            if(aciertos === 2 && piezasEnZona.length === 2) {
+                slot.querySelector('.check-victoria').style.display = 'block';
+            }
+        });
+        this.style.display = 'none';
+        document.getElementById('opciones-finales').classList.remove('contenido-oculto');
+    };
+}
