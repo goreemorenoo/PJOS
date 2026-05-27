@@ -219,43 +219,56 @@ document.getElementById('btn-volver-manada-juego').onclick = function () {
     });
   });
 
-// Usamos el ID que pusiste en el HTML
-const btnTerminar = document.getElementById('btn-terminar-juego');
+// ====== SECCIÓN: VALIDACIÓN DEL JUEGO ======
 
-if (btnTerminar) {
-    btnTerminar.onclick = function () {
-        const slots = document.querySelectorAll('.slot-juego');
-        let totalAciertos = 0; // Para saber si el usuario ganó todo
+// Creamos la función por separado para que el código sea limpio
+function ejecutarValidacionJuego() {
+    const slots = document.querySelectorAll('.slot-juego');
+    let totalSlots = slots.length;
+    let aciertosTotales = 0;
 
-        slots.forEach((slot) => {
-            const categoriaCorrecta = slot.dataset.categoria;
-            // IMPORTANTE: Definir el objetivo en el HTML (1 para deporte, 3 para humanidades, etc.)
-            const objetivo = parseInt(slot.dataset.objetivo) || 2; 
-            
-            const piezasEnZona = slot.querySelectorAll('.pieza-insignia');
-            const palomita = slot.querySelector('.check-victoria');
+    slots.forEach((slot) => {
+        const categoriaCorrecta = slot.dataset.categoria;
+        // Si no pusiste objetivo en el HTML, por defecto busca 2
+        const objetivo = parseInt(slot.dataset.objetivo) || 2; 
+        
+        const piezasEnZona = slot.querySelectorAll('.pieza-insignia');
+        const palomita = slot.querySelector('.check-victoria');
 
-            let aciertosEnSlot = 0;
-            piezasEnZona.forEach((p) => {
-                if (p.dataset.correcta === categoriaCorrecta) aciertosEnSlot++;
-            });
-
-            // Validación dinámica
-            if (aciertosEnSlot === objetivo && piezasEnZona.length === objetivo) {
-                if (palomita) palomita.style.display = 'block';
-                totalAciertos++;
-            } else {
-                if (palomita) palomita.style.display = 'none';
+        let aciertosEnEsteSlot = 0;
+        piezasEnZona.forEach((p) => {
+            if (p.dataset.correcta === categoriaCorrecta) {
+                aciertosEnEsteSlot++;
             }
         });
 
-        // Ocultar botón terminar y mostrar opciones finales
-        this.style.display = 'none';
-        const opcionesFinales = document.getElementById('opciones-finales');
-        if (opcionesFinales) {
-            opcionesFinales.classList.remove('contenido-oculto');
-            // Forzamos el display si el CSS de contenido-oculto es muy estricto
-            opcionesFinales.style.display = 'block'; 
+        // VALIDACIÓN: ¿Aciertos coinciden con el objetivo Y no hay basura extra?
+        if (aciertosEnEsteSlot === objetivo && piezasEnZona.length === objetivo) {
+            if (palomita) palomita.style.display = 'block';
+            aciertosTotales++;
+        } else {
+            if (palomita) palomita.style.display = 'none';
         }
-    };
+    });
+
+    // --- ACCIONES FINALES ---
+    const btnTerminar = document.getElementById('btn-terminar-juego');
+    const opcionesFinales = document.getElementById('opciones-finales');
+
+    // Ocultamos el botón que acabamos de presionar
+    if (btnTerminar) btnTerminar.style.display = 'none';
+
+    // Mostramos el menú de "Reintentar / Siguiente"
+    if (opcionesFinales) {
+        opcionesFinales.classList.remove('contenido-oculto');
+        opcionesFinales.style.display = 'block'; // Asegura visibilidad
+    }
 }
+
+// --- ESCUCHA DE CLIC SEGURA ---
+// En lugar de btn.onclick, usamos esto para que funcione siempre:
+document.addEventListener('click', function (e) {
+    if (e.target && e.target.id === 'btn-terminar-juego') {
+        ejecutarValidacionJuego();
+    }
+});
