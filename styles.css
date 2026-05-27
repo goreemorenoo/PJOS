@@ -684,7 +684,7 @@ display: grid;
     grid-template-columns: repeat(2, 1fr); 
 
     gap: 10px; /* Espacio pequeño para aprovechar espacio */
-    width: 95vw; /* Usa casi todo el ancho de la pantalla del celular */
+    width: 90%; /* Usa casi todo el ancho de la pantalla del celular */
     max-width: 600px; /* En PC no se verá gigante, se quedará contenido */
     margin: 10px auto; /* Centrado horizontal */
     padding: 5px;
