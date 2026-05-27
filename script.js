@@ -272,3 +272,28 @@ document.addEventListener('click', function (e) {
         ejecutarValidacionJuego();
     }
 });
+
+function reiniciarTablero() {
+    const banco = document.querySelector('.piezas-flex');
+    const piezas = document.querySelectorAll('.pieza-insignia');
+    const palomitas = document.querySelectorAll('.check-victoria');
+    const btnTerminar = document.getElementById('btn-terminar-juego');
+    const opcionesFinales = document.getElementById('opciones-finales');
+
+    // 1. Mover todas las piezas de vuelta al banco
+    piezas.forEach(pieza => {
+        banco.appendChild(pieza);
+    });
+
+    // 2. Ocultar todas las palomitas ✅
+    palomitas.forEach(p => {
+        p.style.display = 'none';
+    });
+
+    // 3. Restaurar visibilidad de los botones
+    if (btnTerminar) btnTerminar.style.display = 'inline-block';
+    if (opcionesFinales) {
+        opcionesFinales.classList.add('contenido-oculto');
+        opcionesFinales.style.display = 'none';
+    }
+}
