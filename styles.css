@@ -687,7 +687,7 @@ td {
 
 .slot-juego {
   background: #f8f9fa;
-  border: 2px solid #ddd;
+  border: 2px solid #fffdfd;
   border-radius: 15px;
   padding: 10px;
   min-height: 160px;
@@ -704,7 +704,7 @@ td {
 
 .zona-drop {
   min-height: 90px;
-  border: 2px dashed #bbb;
+  border: 2px dashed #dedede;
   border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -751,8 +751,8 @@ td {
 
 /* Tamaño de la imagen pequeña al lado del título */
 .icono-slot {
-    width: 25px; /* Ajusta según prefieras */
-    height: 25px;
+    width: 10px; /* Ajusta según prefieras */
+    height: 10px;
     object-fit: contain;
 }
 
