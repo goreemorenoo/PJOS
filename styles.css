@@ -685,7 +685,8 @@ td {
     gap: 10px; /* Espacio pequeño para aprovechar espacio */
     width: 80%; /* Usa casi todo el ancho de la pantalla del celular */
     max-width: 600px; /* En PC no se verá gigante, se quedará contenido */
-    margin: auto auto;
+    margin-left: auto;    /* Empuja desde la izquierda */
+    margin-right: auto;   /* Empuja desde la derecha */
     /* Evita que el tablero se salga por la derecha */
     box-sizing: border-box; 
     padding: 0;
