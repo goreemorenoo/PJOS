@@ -751,8 +751,8 @@ td {
 
 /* Tamaño de la imagen pequeña al lado del título */
 .icono-slot {
-    width: 10px; /* Ajusta según prefieras */
-    height: 10px;
+    width: 18px; /* Ajusta según prefieras */
+    height: 18px;
     object-fit: contain;
 }
 
