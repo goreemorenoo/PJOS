@@ -273,44 +273,46 @@ document.addEventListener('click', function (e) {
     }
 });
 
-// ====== FUNCIÓN PARA REINICIAR EL TABLERO ======
+// ====== FUNCIÓN DE REINICIO MEJORADA ======
 function reiniciarTablero() {
+    console.log("Reiniciando tablero..."); // Esto aparecerá en la consola (F12) si funciona
+
     const banco = document.querySelector('.piezas-flex');
     const piezas = document.querySelectorAll('.pieza-insignia');
     const palomitas = document.querySelectorAll('.check-victoria');
     const btnTerminar = document.getElementById('btn-terminar-juego');
     const opcionesFinales = document.getElementById('opciones-finales');
 
-    // 1. Validar que el banco existe
-    if (!banco) {
-        console.error("No se encontró el contenedor .piezas-flex");
-        return;
+    // 1. Devolver piezas al banco
+    if (banco && piezas.length > 0) {
+        piezas.forEach(pieza => {
+            banco.appendChild(pieza);
+        });
     }
 
-    // 2. Mover todas las piezas de vuelta al banco
-    piezas.forEach(pieza => {
-        banco.appendChild(pieza);
-    });
-
-    // 3. Limpiar palomitas y botones
+    // 2. Limpiar visuales
     palomitas.forEach(p => p.style.display = 'none');
+
+    // 3. Resetear botones
+    if (btnTerminar) {
+        btnTerminar.style.display = 'inline-block';
+    }
     
-    if (btnTerminar) btnTerminar.style.display = 'inline-block';
     if (opcionesFinales) {
         opcionesFinales.classList.add('contenido-oculto');
-        opcionesFinales.style.display = 'none';
+        opcionesFinales.style.setProperty('display', 'none', 'important');
     }
 }
 
-// ====== ESCUCHA DE CLICS GLOBAL (PARA AMBOS BOTONES) ======
+// ====== ESCUCHA DE CLICS (VERSION FINAL) ======
 document.addEventListener('click', function (e) {
-    // Si hace clic en TERMINAR
-    if (e.target && e.target.id === 'btn-terminar-juego') {
+    // Detectar botón Terminar
+    if (e.target.closest('#btn-terminar-juego')) {
         ejecutarValidacionJuego();
     }
     
-    // Si hace clic en REINTENTAR
-    if (e.target && e.target.id === 'btn-reintentar-juego') {
+    // Detectar botón Reintentar
+    if (e.target.closest('#btn-reintentar-juego')) {
         reiniciarTablero();
     }
 });
