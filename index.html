@@ -1237,29 +1237,63 @@
       <p class="intro-texto">
         Acomoda las nuevas insignias en sus equivalentes a las insignias del esquema anterior
       <br></p>
-      <div class="tablero-juego">
-        <div class="slot-juego" data-categoria="ecologia"><span class="nombre-slot">Ecología</span><div class="zona-drop"></div><span class="check-victoria">✅</span></div>
-        <div class="slot-juego" data-categoria="humanidades"><span class="nombre-slot">Humanidades</span><div class="zona-drop"></div><span class="check-victoria">✅</span></div>
-        <div class="slot-juego" data-categoria="expresion"><span class="nombre-slot">Expresión</span><div class="zona-drop"></div><span class="check-victoria">✅</span></div>
-        <div class="slot-juego" data-categoria="deporte"><span class="nombre-slot">Deporte</span><div class="zona-drop"></div><span class="check-victoria">✅</span></div>
-        <div class="slot-juego" data-categoria="seguridad"><span class="nombre-slot">Seguridad</span><div class="zona-drop"></div><span class="check-victoria">✅</span></div>
-        <div class="slot-juego" data-categoria="tecnologia"><span class="nombre-slot">Tecnología</span><div class="zona-drop"></div><span class="check-victoria">✅</span></div>
-    </div>
-
-    <div class="banco-piezas">
-        <div class="piezas-flex">
-            <img src="manada/pantanos/pantanos.jpg" class="pieza-insignia" id="p1" data-correcta="ecologia" draggable="true">
-            <img src="manada/dekkan/DEKKAN.jpg" class="pieza-insignia" id="p2" data-correcta="humanidades" draggable="true">
+        <div class="tablero-juego">
+            <div class="slot-juego" data-categoria="deporte">
+                <span class="nombre-slot">Deporte</span>
+                <div class="zona-drop"></div>
+                <span class="check-victoria">✅</span>
             </div>
-    </div>
-
-    <div class="controles-juego">
-        <button id="btn-terminar-juego" class="boton-inicio" style="background-color: #f39c12; margin-bottom: 10px;">Terminar</button>
-        <div id="opciones-finales" class="contenido-oculto">
-            <button class="btn-regresar" onclick="location.reload()">Reiniciar Juego</button>
-            <button id="btn-volver-manada-juego" class="btn-regresar" style="background-color: #27ae60">Finalizar</button>
+            <div class="slot-juego" data-categoria="ecologia">
+                <span class="nombre-slot">Ecología</span>
+                <div class="zona-drop"></div>
+                <span class="check-victoria">✅</span>
+            </div>
+            <div class="slot-juego" data-categoria="expresion">
+                <span class="nombre-slot">Expresión y Com.</span>
+                <div class="zona-drop"></div>
+                <span class="check-victoria">✅</span>
+            </div>
+            <div class="slot-juego" data-categoria="humanidades">
+                <span class="nombre-slot">Humanidades</span>
+                <div class="zona-drop"></div>
+                <span class="check-victoria">✅</span>
+            </div>
+            <div class="slot-juego" data-categoria="seguridad">
+                <span class="nombre-slot">Seguridad y Rescate</span>
+                <div class="zona-drop"></div>
+                <span class="check-victoria">✅</span>
+            </div>
+            <div class="slot-juego" data-categoria="tecnologia">
+                <span class="nombre-slot">Tecnología y Ciencia</span>
+                <div class="zona-drop"></div>
+                <span class="check-victoria">✅</span>
+            </div>
         </div>
-    </div>
+
+        <div class="banco-piezas">
+            <div class="piezas-flex">
+                <img src="manada/cubil/cubil.jpg" class="pieza-insignia" id="p1" data-correcta="deporte" draggable="true">
+                <img src="manada/cubil/cubil.jpg" class="pieza-insignia" id="p2" data-correcta="deporte" draggable="true">
+                <img src="manada/pantanos/pantanos.jpg" class="pieza-insignia" id="p3" data-correcta="ecologia" draggable="true">
+                <img src="manada/pantanos/pantanos.jpg" class="pieza-insignia" id="p4" data-correcta="ecologia" draggable="true">
+                <img src="manada/colinas/colinas.jpg" class="pieza-insignia" id="p5" data-correcta="expresion" draggable="true">
+                <img src="manada/colinas/colinas.jpg" class="pieza-insignia" id="p6" data-correcta="expresion" draggable="true">
+                <img src="manada/dekkan/DEKKAN.jpg" class="pieza-insignia" id="p7" data-correcta="humanidades" draggable="true">
+                <img src="manada/dekkan/DEKKAN.jpg" class="pieza-insignia" id="p8" data-correcta="humanidades" draggable="true">
+                <img src="manada/cubil/cubil.jpg" class="pieza-insignia" id="p9" data-correcta="seguridad" draggable="true">
+                <img src="manada/cubil/cubil.jpg" class="pieza-insignia" id="p10" data-correcta="seguridad" draggable="true">
+                <img src="manada/pantanos/pantanos.jpg" class="pieza-insignia" id="p11" data-correcta="tecnologia" draggable="true">
+                <img src="manada/pantanos/pantanos.jpg" class="pieza-insignia" id="p12" data-correcta="tecnologia" draggable="true">
+            </div>
+        </div>
+
+        <div class="controles-juego">
+            <button id="btn-terminar-juego" class="btn-juego-naranja">Terminar</button>
+            <div id="opciones-finales" class="contenido-oculto">
+                <button class="btn-regresar" onclick="location.reload()">Reintentar</button>
+                <button class="btn-regresar" style="background-color: #27ae60" onclick="mostrarPantalla('pantalla-manada')">Siguiente</button>
+            </div>
+        </div>
 
     
       

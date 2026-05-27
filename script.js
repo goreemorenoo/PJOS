@@ -199,39 +199,51 @@ document.querySelector('.btn-juego').onclick = function () {
 document.getElementById('btn-volver-manada-juego').onclick = function () {
   navegar(pJuego, pManada);
 };
-// Lógica Drag & Drop
-const piezasJuego = document.querySelectorAll('.pieza-insignia');
-const zonasJuego = document.querySelectorAll('.zona-drop');
+  // --- LÓGICA JUEGO ---
+  const piezas = document.querySelectorAll('.pieza-insignia');
+  const zonas = document.querySelectorAll('.zona-drop');
 
-piezasJuego.forEach(p => {
-    p.addEventListener('dragstart', (e) => e.dataTransfer.setData('idPieza', e.target.id));
-});
+  piezas.forEach((p) => {
+    p.addEventListener('dragstart', (e) => {
+      e.dataTransfer.setData('idPieza', e.target.id);
+    });
+  });
 
-zonasJuego.forEach(z => {
+  zonas.forEach((z) => {
     z.addEventListener('dragover', (e) => e.preventDefault());
     z.addEventListener('drop', (e) => {
-        e.preventDefault();
-        const id = e.dataTransfer.getData('idPieza');
-        const pieza = document.getElementById(id);
-        if (pieza) z.appendChild(pieza);
+      e.preventDefault();
+      const id = e.dataTransfer.getData('idPieza');
+      const pieza = document.getElementById(id);
+      z.appendChild(pieza);
     });
-});
+  });
 
-// Botón Terminar
-const btnCheck = document.getElementById('btn-terminar-juego');
-if(btnCheck) {
-    btnCheck.onclick = function() {
-        document.querySelectorAll('.slot-juego').forEach(slot => {
-            const correcta = slot.dataset.categoria;
-            const piezasEnZona = slot.querySelectorAll('.pieza-insignia');
-            let aciertos = 0;
-            piezasEnZona.forEach(p => { if(p.dataset.correcta === correcta) aciertos++; });
+  // Validación Final
+  const btnTerminar = document.getElementById('btn-terminar-juego');
+  btnTerminar.onclick = function () {
+    const slots = document.querySelectorAll('.slot-juego');
 
-            if(aciertos === 2 && piezasEnZona.length === 2) {
-                slot.querySelector('.check-victoria').style.display = 'block';
-            }
-        });
-        this.style.display = 'none';
-        document.getElementById('opciones-finales').classList.remove('contenido-oculto');
-    };
-}
+    slots.forEach((slot) => {
+      const categoriaCorrecta = slot.dataset.categoria;
+      const piezasEnZona = slot.querySelectorAll('.pieza-insignia');
+      const palomita = slot.querySelector('.check-victoria');
+
+      let aciertos = 0;
+      piezasEnZona.forEach((p) => {
+        if (p.dataset.correcta === categoriaCorrecta) aciertos++;
+      });
+
+      // Si hay 2 correctas y nada incorrecto
+      if (aciertos === 2 && piezasEnZona.length === 2) {
+        palomita.style.display = 'block';
+      } else {
+        palomita.style.display = 'none';
+      }
+    });
+
+    this.style.display = 'none';
+    document
+      .getElementById('opciones-finales')
+      .classList.remove('contenido-oculto');
+  };

@@ -666,49 +666,81 @@ td {
 .contenido-oculto {
   display: none !important;
 }
-/* --- ESTILOS ADICIONALES PARA EL JUEGO --- */
+/* --- ESTILOS DEL JUEGO --- */
+.btn-juego-lanzar {
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 20px 0;
+}
+
 .tablero-juego {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 15px;
-  margin-bottom: 30px;
+  margin: 20px 0;
 }
+
 .slot-juego {
-  background: #f9f9f9;
-  border: 2px dashed #7c4caf;
+  background: #f8f9fa;
+  border: 2px solid #ddd;
   border-radius: 15px;
   padding: 10px;
-  min-height: 110px;
+  min-height: 160px;
   position: relative;
 }
-.nombre-slot { font-size: 0.8rem; font-weight: bold; color: #7c4caf; }
-.zona-drop {
-  min-height: 60px;
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-  margin-top: 5px;
+
+.nombre-slot {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #444;
+  display: block;
+  margin-bottom: 8px;
 }
-.pieza-insignia {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  cursor: grab;
-  object-fit: cover;
-  border: 2px solid white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+
+.zona-drop {
+  min-height: 90px;
+  border: 2px dashed #bbb;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: white;
+}
+
+.check-victoria {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 1.5rem;
+  display: none;
+}
+
+.banco-piezas {
+  background: #f0f0f0;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 20px 0;
 }
 .piezas-flex {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
   justify-content: center;
-  background: #eee;
-  padding: 20px;
-  border-radius: 15px;
-  margin-bottom: 20px;
+  gap: 10px;
 }
-.check-victoria { display: none; position: absolute; top: 5px; right: 5px; }
+.pieza-insignia {
+  width: 50px;
+  height: 50px;
+  cursor: grab;
+  object-fit: contain;
+}
+
 /* --- RESPONSIVE --- */
 @media (max-width: 600px) {
   .contenedor-ramas,
