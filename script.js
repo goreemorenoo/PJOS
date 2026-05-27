@@ -19,6 +19,9 @@ const pBienvenida = document.getElementById('pantalla-bienvenida');
 const pRamas = document.getElementById('pantalla-ramas');
 const pManada = document.getElementById('pantalla-manada');
 
+//Pantalla Juego
+const pJuego = document.getElementById('pantalla-juego');
+
 //Pantalla Primer Rastro
 const pRastro = document.getElementById('pantalla-rastro');
 
@@ -186,3 +189,130 @@ document.getElementById('btn-volver-cubil-insignias').onclick = function () {
 document.getElementById('btn-volver-manada-cubil').onclick = function () {
   navegar(pCubil, pManada);
 };
+
+//JUEGO
+document.querySelector('.btn-juego').onclick = function () {
+  navegar(pManada, pJuego);
+};
+
+// Botón de regreso
+document.getElementById('btn-volver-manada-juego').onclick = function () {
+  navegar(pJuego, pManada);
+};
+  // --- LÓGICA JUEGO ---
+  const piezas = document.querySelectorAll('.pieza-insignia');
+  const zonas = document.querySelectorAll('.zona-drop');
+
+  piezas.forEach((p) => {
+    p.addEventListener('dragstart', (e) => {
+      e.dataTransfer.setData('idPieza', e.target.id);
+    });
+  });
+
+  zonas.forEach((z) => {
+    z.addEventListener('dragover', (e) => e.preventDefault());
+    z.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const id = e.dataTransfer.getData('idPieza');
+      const pieza = document.getElementById(id);
+      z.appendChild(pieza);
+    });
+  });
+
+// ====== SECCIÓN: VALIDACIÓN DEL JUEGO ======
+
+// Creamos la función por separado para que el código sea limpio
+function ejecutarValidacionJuego() {
+    const slots = document.querySelectorAll('.slot-juego');
+    let totalSlots = slots.length;
+    let aciertosTotales = 0;
+
+    slots.forEach((slot) => {
+        const categoriaCorrecta = slot.dataset.categoria;
+        // Si no pusiste objetivo en el HTML, por defecto busca 2
+        const objetivo = parseInt(slot.dataset.objetivo) || 2; 
+        
+        const piezasEnZona = slot.querySelectorAll('.pieza-insignia');
+        const palomita = slot.querySelector('.check-victoria');
+
+        let aciertosEnEsteSlot = 0;
+        piezasEnZona.forEach((p) => {
+            if (p.dataset.correcta === categoriaCorrecta) {
+                aciertosEnEsteSlot++;
+            }
+        });
+
+        // VALIDACIÓN: ¿Aciertos coinciden con el objetivo Y no hay basura extra?
+        if (aciertosEnEsteSlot === objetivo && piezasEnZona.length === objetivo) {
+            if (palomita) palomita.style.display = 'block';
+            aciertosTotales++;
+        } else {
+            if (palomita) palomita.style.display = 'none';
+        }
+    });
+
+    // --- ACCIONES FINALES ---
+    const btnTerminar = document.getElementById('btn-terminar-juego');
+    const opcionesFinales = document.getElementById('opciones-finales');
+
+    // Ocultamos el botón que acabamos de presionar
+    if (btnTerminar) btnTerminar.style.display = 'none';
+
+    // Mostramos el menú de "Reintentar / Siguiente"
+    if (opcionesFinales) {
+        opcionesFinales.classList.remove('contenido-oculto');
+        opcionesFinales.style.display = 'block'; // Asegura visibilidad
+    }
+}
+
+// --- ESCUCHA DE CLIC SEGURA ---
+// En lugar de btn.onclick, usamos esto para que funcione siempre:
+document.addEventListener('click', function (e) {
+    if (e.target && e.target.id === 'btn-terminar-juego') {
+        ejecutarValidacionJuego();
+    }
+});
+
+// ====== FUNCIÓN DE REINICIO MEJORADA ======
+function reiniciarTablero() {
+    console.log("Reiniciando tablero..."); // Esto aparecerá en la consola (F12) si funciona
+
+    const banco = document.querySelector('.piezas-flex');
+    const piezas = document.querySelectorAll('.pieza-insignia');
+    const palomitas = document.querySelectorAll('.check-victoria');
+    const btnTerminar = document.getElementById('btn-terminar-juego');
+    const opcionesFinales = document.getElementById('opciones-finales');
+
+    // 1. Devolver piezas al banco
+    if (banco && piezas.length > 0) {
+        piezas.forEach(pieza => {
+            banco.appendChild(pieza);
+        });
+    }
+
+    // 2. Limpiar visuales
+    palomitas.forEach(p => p.style.display = 'none');
+
+    // 3. Resetear botones
+    if (btnTerminar) {
+        btnTerminar.style.display = 'inline-block';
+    }
+    
+    if (opcionesFinales) {
+        opcionesFinales.classList.add('contenido-oculto');
+        opcionesFinales.style.setProperty('display', 'none', 'important');
+    }
+}
+
+// ====== ESCUCHA DE CLICS (VERSION FINAL) ======
+document.addEventListener('click', function (e) {
+    // Detectar botón Terminar
+    if (e.target.closest('#btn-terminar-juego')) {
+        ejecutarValidacionJuego();
+    }
+    
+    // Detectar botón Reintentar
+    if (e.target.closest('#btn-reintentar-juego')) {
+        reiniciarTablero();
+    }
+});
