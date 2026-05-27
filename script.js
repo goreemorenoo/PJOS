@@ -273,6 +273,7 @@ document.addEventListener('click', function (e) {
     }
 });
 
+// ====== FUNCIÓN PARA REINICIAR EL TABLERO ======
 function reiniciarTablero() {
     const banco = document.querySelector('.piezas-flex');
     const piezas = document.querySelectorAll('.pieza-insignia');
@@ -280,20 +281,36 @@ function reiniciarTablero() {
     const btnTerminar = document.getElementById('btn-terminar-juego');
     const opcionesFinales = document.getElementById('opciones-finales');
 
-    // 1. Mover todas las piezas de vuelta al banco
+    // 1. Validar que el banco existe
+    if (!banco) {
+        console.error("No se encontró el contenedor .piezas-flex");
+        return;
+    }
+
+    // 2. Mover todas las piezas de vuelta al banco
     piezas.forEach(pieza => {
         banco.appendChild(pieza);
     });
 
-    // 2. Ocultar todas las palomitas ✅
-    palomitas.forEach(p => {
-        p.style.display = 'none';
-    });
-
-    // 3. Restaurar visibilidad de los botones
+    // 3. Limpiar palomitas y botones
+    palomitas.forEach(p => p.style.display = 'none');
+    
     if (btnTerminar) btnTerminar.style.display = 'inline-block';
     if (opcionesFinales) {
         opcionesFinales.classList.add('contenido-oculto');
         opcionesFinales.style.display = 'none';
     }
 }
+
+// ====== ESCUCHA DE CLICS GLOBAL (PARA AMBOS BOTONES) ======
+document.addEventListener('click', function (e) {
+    // Si hace clic en TERMINAR
+    if (e.target && e.target.id === 'btn-terminar-juego') {
+        ejecutarValidacionJuego();
+    }
+    
+    // Si hace clic en REINTENTAR
+    if (e.target && e.target.id === 'btn-reintentar-juego') {
+        reiniciarTablero();
+    }
+});
