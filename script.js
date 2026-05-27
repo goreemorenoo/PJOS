@@ -234,12 +234,11 @@ document.getElementById('btn-volver-manada-juego').onclick = function () {
         if (p.dataset.correcta === categoriaCorrecta) aciertos++;
       });
 
-      // Si hay 2 correctas y nada incorrecto
-      if (aciertos === 2 && piezasEnZona.length === 2) {
-        palomita.style.display = 'block';
-      } else {
-        palomita.style.display = 'none';
-      }
+      if (aciertos === objetivo && piezasEnZona.length === objetivo) {
+            palomita.style.display = 'block';
+        } else {
+            palomita.style.display = 'none';
+        }
     });
 
     this.style.display = 'none';
