@@ -740,6 +740,29 @@ td {
   cursor: grab;
   object-fit: contain;
 }
+/* Contenedor del título e icono */
+.header-slot {
+    display: flex;
+    align-items: center; /* Alinea verticalmente al centro */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    gap: 8px; /* Espacio entre la imagen y el texto */
+    margin-bottom: 5px;
+}
+
+/* Tamaño de la imagen pequeña al lado del título */
+.icono-slot {
+    width: 25px; /* Ajusta según prefieras */
+    height: 25px;
+    object-fit: contain;
+}
+
+/* Ajuste opcional para el nombre para que no se vea apretado */
+.nombre-slot {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #7c4caf;
+    margin: 0; /* Quitamos márgenes extra */
+}
 
 /* --- RESPONSIVE --- */
 @media (max-width: 600px) {
