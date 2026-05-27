@@ -219,30 +219,43 @@ document.getElementById('btn-volver-manada-juego').onclick = function () {
     });
   });
 
-  // Validación Final
-  const btnTerminar = document.getElementById('btn-terminar-juego');
-  btnTerminar.onclick = function () {
-    const slots = document.querySelectorAll('.slot-juego');
+// Usamos el ID que pusiste en el HTML
+const btnTerminar = document.getElementById('btn-terminar-juego');
 
-    slots.forEach((slot) => {
-      const categoriaCorrecta = slot.dataset.categoria;
-      const piezasEnZona = slot.querySelectorAll('.pieza-insignia');
-      const palomita = slot.querySelector('.check-victoria');
+if (btnTerminar) {
+    btnTerminar.onclick = function () {
+        const slots = document.querySelectorAll('.slot-juego');
+        let totalAciertos = 0; // Para saber si el usuario ganó todo
 
-      let aciertos = 0;
-      piezasEnZona.forEach((p) => {
-        if (p.dataset.correcta === categoriaCorrecta) aciertos++;
-      });
+        slots.forEach((slot) => {
+            const categoriaCorrecta = slot.dataset.categoria;
+            // IMPORTANTE: Definir el objetivo en el HTML (1 para deporte, 3 para humanidades, etc.)
+            const objetivo = parseInt(slot.dataset.objetivo) || 2; 
+            
+            const piezasEnZona = slot.querySelectorAll('.pieza-insignia');
+            const palomita = slot.querySelector('.check-victoria');
 
-      if (aciertos === objetivo && piezasEnZona.length === objetivo) {
-            palomita.style.display = 'block';
-        } else {
-            palomita.style.display = 'none';
+            let aciertosEnSlot = 0;
+            piezasEnZona.forEach((p) => {
+                if (p.dataset.correcta === categoriaCorrecta) aciertosEnSlot++;
+            });
+
+            // Validación dinámica
+            if (aciertosEnSlot === objetivo && piezasEnZona.length === objetivo) {
+                if (palomita) palomita.style.display = 'block';
+                totalAciertos++;
+            } else {
+                if (palomita) palomita.style.display = 'none';
+            }
+        });
+
+        // Ocultar botón terminar y mostrar opciones finales
+        this.style.display = 'none';
+        const opcionesFinales = document.getElementById('opciones-finales');
+        if (opcionesFinales) {
+            opcionesFinales.classList.remove('contenido-oculto');
+            // Forzamos el display si el CSS de contenido-oculto es muy estricto
+            opcionesFinales.style.display = 'block'; 
         }
-    });
-
-    this.style.display = 'none';
-    document
-      .getElementById('opciones-finales')
-      .classList.remove('contenido-oculto');
-  };
+    };
+}
