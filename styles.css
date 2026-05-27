@@ -679,10 +679,15 @@ td {
 }
 
 .tablero-juego {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  margin: 20px 0;
+display: grid;
+    /* En móviles, 2 columnas iguales */
+    grid-template-columns: repeat(2, 1fr); 
+
+    gap: 10px; /* Espacio pequeño para aprovechar espacio */
+    width: 95vw; /* Usa casi todo el ancho de la pantalla del celular */
+    max-width: 600px; /* En PC no se verá gigante, se quedará contenido */
+    margin: 10px auto; /* Centrado horizontal */
+    padding: 5px;
 }
 
 .slot-juego {
