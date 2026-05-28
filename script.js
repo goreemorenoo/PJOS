@@ -19,9 +19,6 @@ const pBienvenida = document.getElementById('pantalla-bienvenida');
 const pRamas = document.getElementById('pantalla-ramas');
 const pManada = document.getElementById('pantalla-manada');
 
-//Pantalla Juego
-const pJuego = document.getElementById('pantalla-juego');
-
 //Pantalla Primer Rastro
 const pRastro = document.getElementById('pantalla-rastro');
 
@@ -44,6 +41,12 @@ const pInsigniasColinas = document.getElementById('pantalla-insignias-colinas');
 const pCubil = document.getElementById('pantalla-cubil');
 const pMallaCubil = document.getElementById('pantalla-malla-cubil');
 const pInsigniasCubil = document.getElementById('pantalla-insignias-cubil');
+
+//Pantalla Juego
+const pJuego = document.getElementById('pantalla-juego');
+
+//Pantalla Bibliografia
+const pBibliografia = document.getElementById('pantalla-bibliografia');
 
 // ====== NAVEGACIÓN FLUJO INICIAL ======
 document.getElementById('btn-inicio').onclick = function () {
@@ -190,7 +193,7 @@ document.getElementById('btn-volver-manada-cubil').onclick = function () {
   navegar(pCubil, pManada);
 };
 
-//JUEGO
+//NAVEGACION INTERNA JUEGO
 document.querySelector('.btn-juego').onclick = function () {
   navegar(pManada, pJuego);
 };
@@ -265,14 +268,6 @@ function ejecutarValidacionJuego() {
     }
 }
 
-// --- ESCUCHA DE CLIC SEGURA ---
-// En lugar de btn.onclick, usamos esto para que funcione siempre:
-document.addEventListener('click', function (e) {
-    if (e.target && e.target.id === 'btn-terminar-juego') {
-        ejecutarValidacionJuego();
-    }
-});
-
 // ====== FUNCIÓN DE REINICIO MEJORADA ======
 function reiniciarTablero() {
     console.log("Reiniciando tablero..."); // Esto aparecerá en la consola (F12) si funciona
@@ -316,3 +311,13 @@ document.addEventListener('click', function (e) {
         reiniciarTablero();
     }
 });
+
+//NAVEGACION INTERNA BILIOGRAFIA
+document.querySelector('.btn-biliografia').onclick = function () {
+  navegar(pManada, pBibliografia);
+};
+
+// Botón de regreso
+document.getElementById('btn-volver-manada-bibliografia').onclick = function () {
+  navegar(pBibliografia, pManada);
+};

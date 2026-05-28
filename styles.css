@@ -109,7 +109,8 @@ body {
 .btn-regresar-naranja,
 .btn-regresar-azul,
 .btn-regresar-rastro,
-.btn-regresar-juego {
+.btn-regresar-juego,
+.btn-regresar-bibliografia {
   color: white;
   border: none;
   padding: 12px 35px;
@@ -166,6 +167,14 @@ body {
 }
 .btn-regresar-juego:hover {
   background-color: #9500ff;
+  transform: scale(1.03);
+}
+
+.btn-regresar-bibliografia {
+  background-color: #322f33;
+}
+.btn-regresar-bibliografia:hover {
+  background-color: #000000;
   transform: scale(1.03);
 }
 
@@ -228,7 +237,9 @@ body {
 .btn-juego {
   background-color: #ad5ce3;
 }
-
+.btn-bibliografia {
+  background-color: #585858;
+}
 .img-lateral {
   width: 60px;
   height: 70px;
@@ -238,8 +249,8 @@ body {
 }
 
 /* --- ESTILOS DE PÁGINAS TEMÁTICAS --- */
-/* --- NUEVOS ESTILOS PARA EL BOTÓN DE REVELADO --- */
 
+/* PRIMER RASTRO*/
 /* Estilo del botón "Ver completo" - similar a .btn-regresar */
 .btn-completo {
   background-color: #8d8b39; /* Color ocre de la sección */
@@ -264,8 +275,6 @@ body {
 .btn-completo:active {
   transform: translateY(0);
 }
-
-/* --- AJUSTES DE MAQUETACIÓN --- */
 
 /* Asegurar que las tarjetas de revelación usen flex para centrar contenido */
 .tarjeta-revelacion {
@@ -299,7 +308,6 @@ body {
   height: auto;
   border-radius: 12px;
 }
-
 
 /* Contenedor flexible para alinear los elementos */
 .encabezado-con-imagen {
@@ -378,8 +386,8 @@ body {
   margin: 0 auto;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
-.pagina-juego {
-  background-color: #f0e8f5 !important;
+.pagina-bibliografia {
+  background-color: #bdbdbe !important;
   text-align: center;
   padding: 40px 60px;
   border-radius: 24px;
@@ -388,16 +396,7 @@ body {
   margin: 0 auto;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
-.pagina-juego {
-  background-color: #f1e8f5 !important;
-  text-align: center;
-  padding: 40px 60px;
-  border-radius: 24px;
-  max-width: 850px;
-  width: 95%;
-  margin: 0 auto;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-}
+
 
 .titulo-pantanos {
   color: #2e7d32;
@@ -428,6 +427,11 @@ body {
 }
 .titulo-juego {
   color: #5d2e7d;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+.titulo-bibliografia {
+  color: #1a191b;
   font-size: 2.2rem;
   margin-bottom: 15px;
 }
