@@ -682,6 +682,7 @@ td {
   display: grid;
     /* En móviles, 2 columnas iguales */
     grid-template-columns: repeat(2, 1fr); 
+    justify-content: center;
     gap: 5px; /* Espacio pequeño para aprovechar espacio */
     width: 99%; /* Usa casi todo el ancho de la pantalla del celular */
     max-width: 600px; /* En PC no se verá gigante, se quedará contenido */
@@ -765,10 +766,13 @@ td {
 }
 
 .frase-principal {
+    display: block;      /* Hace que el span ocupe todo el ancho disponible */
+    text-align: center;  /* Centra el texto horizontalmente */
+    width: 100%;         /* Asegura que use el 100% del contenedor */
     font-size: 0.85rem;
     font-weight: bold;
     color: #6a2a9b;
-    line-height: 1.1;
+    line-height: 1.1;  
 }
 
 .frase-secundaria {
