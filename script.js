@@ -312,7 +312,7 @@ document.addEventListener('click', function (e) {
     }
 });
 
-//NAVEGACION INTERNA BILIOGRAFIA
+//NAVEGACION INTERNA BIBLIOGRAFIA
 document.querySelector('.btn-bibliografia').onclick = function () {
   navegar(pManada, pBibliografia);
 };
