@@ -387,7 +387,7 @@ body {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
 .pagina-bibliografia {
-  background-color: #dadadb !important;
+  background-color: #f6f6f7 !important;
   text-align: center;
   padding: 40px 60px;
   border-radius: 24px;
@@ -786,6 +786,48 @@ td {
     font-style: italic; /* Opcional: para diferenciarla más */
 }
 
+/* Contenedor de cada libro/link */
+.bibliografia-item {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo ligero */
+    border-left: 5px solid #6a2a9b; /* Línea morada al lado */
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: left; /* Alineado a la izquierda para mejor lectura */
+    border-radius: 8px;
+}
+
+/* Estilo del Título */
+.bib-titulo {
+    color: #6a2a9b;
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+/* Estilo de la Descripción */
+.bib-descripcion {
+    color: #333;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+/* Estilo del Link (Botón pequeño) */
+.bib-link {
+    display: inline-block;
+    color: #27ae60; /* Verde Scout */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.bib-link:hover {
+    color: #6a2a9b;
+    text-decoration: underline;
+}
+
 /* --- RESPONSIVE --- */
 @media (max-width: 600px) {
   .contenedor-ramas,
@@ -797,7 +839,8 @@ td {
   .pagina-rosa,
   .pagina-naranja,
   .pagina-azul, 
-  .pagina-juego {
+  .pagina-juego, 
+  .pagina-bibliografia {
     padding: 30px 20px;
   }
 }
