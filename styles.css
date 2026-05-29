@@ -877,7 +877,8 @@ td {
   .pagina-naranja,
   .pagina-azul, 
   .pagina-juego, 
-  .pagina-bibliografia {
+  .pagina-bibliografia,
+  .pagina-enlace {
     padding: 30px 20px;
   }
 }
