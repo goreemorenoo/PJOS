@@ -46,9 +46,6 @@ const pCubil = document.getElementById('pantalla-cubil');
 const pMallaCubil = document.getElementById('pantalla-malla-cubil');
 const pInsigniasCubil = document.getElementById('pantalla-insignias-cubil');
 
-//Pantalla Primer Rastro
-const pEnlace = document.getElementById('pantalla-enlace');
-
 //Pantalla Juego
 const pJuego = document.getElementById('pantalla-juego');
 
@@ -208,16 +205,6 @@ document.getElementById('btn-volver-cubil-insignias').onclick = function () {
 
 document.getElementById('btn-volver-manada-cubil').onclick = function () {
   navegar(pCubil, pManada);
-};
-
-//NAVEGACION INTERNA BIBLIOGRAFIA
-document.querySelector('.btn-enlace').onclick = function () {
-  navegar(pManada, pEnlace);
-};
-
-// Botón de regreso
-document.getElementById('btn-volver-manada-enlace').onclick = function () {
-  navegar(pEnlace, pManada);
 };
 
 //NAVEGACION INTERNA JUEGO
