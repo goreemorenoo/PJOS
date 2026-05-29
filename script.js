@@ -17,6 +17,10 @@ function avisoDesarrollo() {
 // ====== CONSTANTES DE PANTALLAS ======
 const pBienvenida = document.getElementById('pantalla-bienvenida');
 const pRamas = document.getElementById('pantalla-ramas');
+const pBGral = document.getElementById('pantalla-bgral');
+
+
+//MANADA
 const pManada = document.getElementById('pantalla-manada');
 
 //Pantalla Primer Rastro
@@ -57,6 +61,16 @@ document.getElementById('btn-regresar-bienvenida').onclick = function () {
   navegar(pRamas, pBienvenida);
 };
 
+//NAVEGACION BIBLIOGRAFIA
+document.querySelector('.btn-bgral').onclick = function () {
+  navegar(pRamas, pBGral);
+};
+
+// Botón de regreso
+document.getElementById('btn-volver-ramas-bgral').onclick = function () {
+  navegar(pBGral, pRamas);
+
+};
 document.getElementById('btn-ir-manada').onclick = function () {
   navegar(pRamas, pManada);
 };
