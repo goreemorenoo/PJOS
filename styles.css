@@ -828,52 +828,14 @@ td {
     text-decoration: underline;
 }
 
-/* Estilo para el numerito en el texto */
-.ref-llamada {
-    font-size: 0.7rem;
-    color: #6a2a9b; /* Color morado de tu tema */
-    font-weight: bold;
-    margin-left: 2px;
-    cursor: help;
-}
-
-/* Contenedor principal de notas al pie */
-.contenedor-referencias {
-    margin-top: 40px;
-    padding: 10px 20px;
-    text-align: left; /* Siempre a la izquierda */
-    width: 100%;
-    max-width: 800px;
-}
-
-/* Línea divisoria sutil */
-.linea-referencias {
-    border: 0;
-    border-top: 1px solid #ccc;
-    width: 30%; /* Línea corta estilo libro */
-    margin-bottom: 15px;
-}
-
-/* Cada renglón de referencia */
-.item-referencia {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 8px;
-    font-size: 0.85rem; /* Letra más pequeña */
-    color: #555;
-    line-height: 1.3;
-}
-
-/* El número [1] dentro de la lista */
-.num-ref {
-    font-weight: bold;
-    color: #6a2a9b;
-    margin-right: 10px;
-    min-width: 25px;
-}
-
-.texto-ref {
-    flex: 1;
+/* Referencia directa en el texto */
+.ref-manual {
+    font-size: 0.75rem;      /* Letra pequeña */
+    font-style: italic;      /* En cursiva */
+    color: #777;             /* Gris discreto */
+    display: inline-block;   /* Permite un pequeño margen lateral */
+    margin-left: 5px;
+    font-weight: normal;     /* Asegura que no herede negritas del párrafo */
 }
 
 /* --- RESPONSIVE --- */
