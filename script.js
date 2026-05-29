@@ -17,7 +17,6 @@ function avisoDesarrollo() {
 // ====== CONSTANTES DE PANTALLAS ======
 const pBienvenida = document.getElementById('pantalla-bienvenida');
 const pRamas = document.getElementById('pantalla-ramas');
-const pBGeneral = document.getElementById('pantalla-bgeneral');
 const pManada = document.getElementById('pantalla-manada');
 
 //Pantalla Primer Rastro
@@ -56,14 +55,6 @@ document.getElementById('btn-inicio').onclick = function () {
 
 document.getElementById('btn-regresar-bienvenida').onclick = function () {
   navegar(pRamas, pBienvenida);
-};
-
-document.getElementById('btn-bgeneral').onclick = function () {
-  navegar(pRamas, pBGeneral);
-};
-
-document.getElementById('btn-regresar-bgeneral').onclick = function () {
-  navegar(pBGeneral, pRamas);
 };
 
 document.getElementById('btn-ir-manada').onclick = function () {
