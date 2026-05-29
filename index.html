@@ -218,6 +218,19 @@
         </div>
       </div>
 
+    <h1 class="titulo-principal" style="color: #ffca28">Insignias Finales</h1>
+      <div class="contenedor-territorios">
+        <div class="tarjeta-territorio">
+          <button class="btn-territorio btn-enlace">
+            Es hora de irse a la aldea del hombre<br />
+          </button>
+          <img
+            src="manada/enlace.jpg"
+            alt="Enlace a tropa"
+            class="img-lateral"
+          />
+        </div>      
+
       <button class="btn-regresar btn-juego" style="background-color: #64398d;">
         JUEGO
       </button>
@@ -1391,6 +1404,73 @@
         Volver a Cubil
       </button>
     </div>
+
+    <div id="pantalla-enlace" class="contenido-oculto pagina-rastro">
+      <div style="display: flex !important; flex-direction: row !important; align-items: center; justify-content: center; gap: 15px; margin-bottom: 20px;">
+      <img src="manada/rastro/rastro.png" 
+          alt="Rastro" 
+          style="width: 80px; height: auto; display: inline-block;">
+      
+      <h1 class="titulo-rastro" style="margin: 0; display: inline-block;">MI PRIMER RASTRO</h1>
+      </div>
+          <p class="intro-texto">
+        Existen dos insignias las cuáles son parte de la identidad de la sección, es decir, no se ganan, se entregan como símbolo de pertenencia.
+        <br></p>
+        <h3 class="intro-texto">Progresión Personal</h3>
+        <p class="intro-texto">
+            Tu <strong>Primer Rastro</strong> lo obtendrás cuando seas parte del Pueblo Libre y con éste, llegarán algunos gamos como tu Compromiso.
+            <span class="ref-manual">(Mis Rastros en la Selva, pág. 62)</span>
+        <br></p>
+    <div class="contenedor-explicacion">
+        <div class="tarjeta-opcion-btn no-cursor">
+            <img src="manada/rastro/rastros.jpg" alt="Rastros" style=" margin-top: 10px; width: 100%; height: auto">
+        </div>
+
+        <div class="tarjeta-opcion-btn no-cursor">
+            <div id="insignia1" class="revelar-oculto">
+                <img src="manada/rastro/rastrocompleto.jpg" alt="Insignia 1A" style="margin-top: 10px; width: 100%; height: auto">
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center; width: 100%; margin-top: 20px; margin-bottom: 30px;">
+    <button id="btn-revelar-1" 
+            class="btn-regresar" 
+            style="background-color: #7c4caf;" 
+            onclick="revelarInsignia('insignia1', 'btn-revelar-1')">
+        Ver completo
+    </button>
+    </div>
+      
+    <h3 class="intro-texto">Especialidades</h3>
+        <p class="intro-texto">
+          La <strong> cabeza de Kaa </strong> será el inicio de la obtención de insignias de especialidades
+          <span class="ref-manual">(Guía de Scouter de Manada de Lobatos , pág. 74)</span>
+        <br></p>
+    <div class="contenedor-explicacion">
+        <div class="tarjeta-opcion-btn no-cursor">
+            <img src="manada/rastro/Kaa.jpg" alt="Kaa" style=" margin-top: 10px; width: 100%; height: auto">
+        </div>
+
+        <div class="tarjeta-opcion-btn no-cursor">
+            <div id="insignia2" class="revelar-oculto">
+                <img src="manada/rastro/Kaacompleto.jpg" alt="Insignia 2A" style="margin-top: 10px; width: 100%; height: auto">
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center; width: 100%; margin-top: 20px; margin-bottom: 30px;">
+    <button id="btn-revelar-2" 
+            class="btn-regresar" 
+            style="background-color: #7c4caf;" 
+            onclick="revelarInsignia('insignia2', 'btn-revelar-2')">
+        Ver completo
+    </button>
+    </div>
+         
+    <button id="btn-volver-manada-enlace" class="btn-regresar"
+      style="background-color: #8d8b39"
+      >
+        Volver a Manada
+  </div>
 
     <div id="pantalla-juego" class="contenido-oculto pagina-juego">
       <h1 class="titulo-juego" style="margin: 0; display: inline-block;">ES HORA DE JUGAR</h1>
