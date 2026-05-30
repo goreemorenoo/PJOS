@@ -813,6 +813,61 @@ td {
     font-style: italic; /* Opcional: para diferenciarla más */
 }
 
+/* Contenedor principal ahora en columna */
+.contenedor-juego-uniforme {
+    display: flex;
+    flex-direction: column; /* Esto pone la caja abajo */
+    align-items: center;    /* Centra la camisola y la caja */
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.camisola-tablero {
+    position: relative;
+    width: 100%;
+    max-width: 450px; /* Tamaño máximo para que no se vea gigante */
+}
+
+.img-base-uniforme {
+    width: 100%;
+    display: block;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Caja de insignias horizontal (debajo de la foto) */
+.caja-insignias-inferior {
+    background-color: #ffffff;
+    border: 2px solid #64398d;
+    border-radius: 20px;
+    padding: 15px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.piezas-flex-horizontal {
+    display: flex;
+    justify-content: center; /* Alinea las insignias una al lado de otra */
+    flex-wrap: wrap;         /* Si son muchas, se pasan a la siguiente línea */
+    gap: 15px;
+}
+
+.pieza-insignia {
+    width: 65px;
+    cursor: grab;
+    transition: transform 0.2s;
+}
+
+/* Estilo de las zonas de soltado (Drop Zones) */
+.zona-dropU {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px dashed rgba(100, 57, 141, 0.5);
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+}
+
 /* Contenedor de cada libro/link */
 .bibliografia-item {
     background-color: rgba(255, 255, 255, 0.1); /* Fondo ligero */

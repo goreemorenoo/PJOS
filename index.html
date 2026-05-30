@@ -1685,6 +1685,29 @@
   </div> 
 
   <div id="pantalla-uniforme" class="contenido-oculto pagina-juego">
+      <h1 class="titulo-juego" style="margin: 0; display: inline-block;">ES HORA DE JUGAR</h1>
+      <p class="intro-texto">
+        Acomoda las insignias en tu camisola 
+      <br></p>   
+      <div class="contenedor-juego-uniforme">
+    
+    <div class="camisola-tablero">
+        <img src="tu-ruta/camisola-frente-vacia.png" class="img-base-uniforme">
+
+        <div id="zona-asmac" class="zona-dropU" data-esperado="insignia-asmac"></div>
+        <div id="zona-flor-lis" class="zona-dropU" data-esperado="insignia-flor-lis"></div>
+        <div id="zona-promesa" class="zona-dropU" data-esperado="insignia-promesa"></div>
+    </div>
+
+    <div class="caja-insignias-inferior">
+        <p class="titulo-banco">ARRASTRA LAS INSIGNIAS A SU LUGAR:</p>
+        <div class="piezas-flex-horizontal">
+            <img src="insignias/cinta-mexico.png" id="insignia-asmac" class="pieza-insignia" draggable="true">
+            <img src="insignias/flor-lis.png" id="insignia-flor-lis" class="pieza-insignia" draggable="true">
+            <img src="insignias/promesa.png" id="insignia-promesa" class="pieza-insignia" draggable="true">
+        </div>
+    </div>
+    </div> 
     <button id="btn-volver-manada-uniforme" class="btn-regresar"
       style="background-color: #64398d"
       >
