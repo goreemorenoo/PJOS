@@ -351,6 +351,33 @@ document.getElementById('btn-volver-manada-uniforme').onclick = function () {
   navegar(pUniforme, pManada);
 };
 
+// --- LÓGICA ARRASTRE CAMISOLA ---
+const piezasUniforme = document.querySelectorAll('.pieza-insignia');
+const zonasUniforme = document.querySelectorAll('.zona-dropU'); // Cambiado a tu clase del HTML
+
+piezasUniforme.forEach((p) => {
+    p.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('idPieza', e.target.id);
+    });
+});
+
+zonasUniforme.forEach((z) => {
+    z.addEventListener('dragover', (e) => e.preventDefault());
+    z.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const id = e.dataTransfer.getData('idPieza');
+        const pieza = document.getElementById(id);
+        
+        // Verificamos si es el lugar correcto según el HTML
+        if (z.dataset.esperado === id) {
+            z.appendChild(pieza);
+            pieza.style.width = "100%"; // Ajusta la insignia al tamaño de la cajita
+        } else {
+            alert("¡Esa insignia no va ahí! Revisa tu manual.");
+        }
+    });
+});
+
 //NAVEGACION INTERNA BIBLIOGRAFIA
 document.querySelector('.btn-bibliografia').onclick = function () {
   navegar(pManada, pBibliografia);
