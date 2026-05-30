@@ -820,6 +820,7 @@ td {
     align-items: center;    /* Centra la camisola y la caja */
     gap: 30px;
     margin-top: 20px;
+    width: 100%;
 }
 
 .camisola-tablero {
