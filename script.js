@@ -92,7 +92,7 @@ function revelarInsignia(insigniaId, btnId) {
       // Muestra la insignia
       insignia.classList.add('mostrar-insignia');
       // Oculta el botón suavemente
-      boton.style.display = 'none';
+      //boton.style.display = 'none';
   }
 }
 
