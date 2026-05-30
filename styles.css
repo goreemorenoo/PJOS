@@ -825,7 +825,7 @@ td {
 .camisola-tablero {
     position: relative;
     width: 100%;
-    max-width: 450px; /* Tamaño máximo para que no se vea gigante */
+    max-width: 700px; /* Tamaño máximo para que no se vea gigante */
 }
 
 .img-base-uniforme {
@@ -867,6 +867,9 @@ td {
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 8px;
 }
+#zona-asmac { top: 18%; left: 20%; }
+#zona-flor-lis { top: 22%; left: 68%; }
+#zona-promesa { top: 35%; left: 68%; }
 
 /* Contenedor de cada libro/link */
 .bibliografia-item {
