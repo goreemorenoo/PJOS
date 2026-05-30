@@ -110,7 +110,8 @@ body {
 .btn-regresar-azul,
 .btn-regresar-rastro,
 .btn-regresar-juego,
-.btn-regresar-bibliografia {
+.btn-regresar-bibliografia,
+.btn-regresar-enlace {
   color: white;
   border: none;
   padding: 12px 35px;
@@ -159,6 +160,14 @@ body {
 }
 .btn-regresar-rastro:hover {
   background-color: #f6ff00;
+  transform: scale(1.03);
+}
+
+.btn-regresar-enlace {
+  background-color: #8d3939;
+}
+.btn-regresar-enlace:hover {
+  background-color: #ff0000;
   transform: scale(1.03);
 }
 
@@ -233,6 +242,9 @@ body {
 }
 .btn-rastro {
   background-color: #e3d75c;
+}
+.btn-enlace {
+  background-color: #e35c5c;
 }
 .btn-juego {
   background-color: #ad5ce3;
@@ -376,6 +388,16 @@ body {
   margin: 0 auto;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
+.pagina-enlace {
+  background-color: #f5e8e8 !important;
+  text-align: center;
+  padding: 40px 60px;
+  border-radius: 24px;
+  max-width: 850px;
+  width: 95%;
+  margin: 0 auto;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
 .pagina-juego {
   background-color: #f1e8f5 !important;
   text-align: center;
@@ -422,6 +444,11 @@ body {
 }
 .titulo-rastro {
   color: #7d7c2e;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+.titulo-enlace {
+  color: #7d2e2e;
   font-size: 2.2rem;
   margin-bottom: 15px;
 }
@@ -850,7 +877,8 @@ td {
   .pagina-naranja,
   .pagina-azul, 
   .pagina-juego, 
-  .pagina-bibliografia {
+  .pagina-bibliografia,
+  .pagina-enlace {
     padding: 30px 20px;
   }
 }

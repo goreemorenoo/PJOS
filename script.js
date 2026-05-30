@@ -46,6 +46,9 @@ const pCubil = document.getElementById('pantalla-cubil');
 const pMallaCubil = document.getElementById('pantalla-malla-cubil');
 const pInsigniasCubil = document.getElementById('pantalla-insignias-cubil');
 
+//Pantalla Insignias finales
+const pEnlace = document.getElementById('pantalla-enlace');
+
 //Pantalla Juego
 const pJuego = document.getElementById('pantalla-juego');
 
@@ -71,6 +74,7 @@ document.getElementById('btn-volver-ramas-bgral').onclick = function () {
   navegar(pBGral, pRamas);
 
 };
+
 document.getElementById('btn-ir-manada').onclick = function () {
   navegar(pRamas, pManada);
 };
@@ -88,7 +92,7 @@ function revelarInsignia(insigniaId, btnId) {
       // Muestra la insignia
       insignia.classList.add('mostrar-insignia');
       // Oculta el botón suavemente
-      boton.style.display = 'none';
+      //boton.style.display = 'none';
   }
 }
 
@@ -205,6 +209,17 @@ document.getElementById('btn-volver-cubil-insignias').onclick = function () {
 
 document.getElementById('btn-volver-manada-cubil').onclick = function () {
   navegar(pCubil, pManada);
+};
+
+//NAVEGACION ENLACE
+document.querySelector('.btn-enlace').onclick = function () {
+  navegar(pManada, pEnlace);
+};
+
+// Botón de regreso
+document.getElementById('btn-volver-manada-enlace').onclick = function () {
+  navegar(pEnlace, pManada);
+
 };
 
 //NAVEGACION INTERNA JUEGO
