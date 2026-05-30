@@ -1694,29 +1694,31 @@
     <div class="camisola-tablero">
         <img src="manada/camisolaVacia.jpg" class="img-base-uniforme">
 
-        <div id="zona-asmac" class="zona-drop slot-juego" data-categoria="asmac" data-objetivo="1">
-            <span class="check-victoria" style="display:none;">✓</span>
+<div id="zona-asmac" class="zona-dropU slot-u" data-u="asmac">
+            <span class="check-u" style="display:none; color: green; font-weight: bold;">✓</span>
         </div>
-        <div id="zona-flor-lis" class="zona-drop slot-juego" data-categoria="flor-lis" data-objetivo="1">
-            <span class="check-victoria" style="display:none;">✓</span>
+        <div id="zona-flor-lis" class="zona-dropU slot-u" data-u="flor">
+            <span class="check-u" style="display:none; color: green; font-weight: bold;">✓</span>
         </div>
-        <div id="zona-promesa" class="zona-drop slot-juego" data-categoria="promesa" data-objetivo="1">
-            <span class="check-victoria" style="display:none;">✓</span>
+        <div id="zona-promesa" class="zona-dropU slot-u" data-u="promesa">
+            <span class="check-u" style="display:none; color: green; font-weight: bold;">✓</span>
         </div>
     </div>
 
     <div class="caja-insignias-inferior">
         <p class="titulo-banco">ARRASTRA LAS INSIGNIAS A SU LUGAR:</p>
-        <div class="piezas-flex"> <img src="todos/MOP.jpg" id="insignia-asmac" class="pieza-insignia" data-correcta="asmac" draggable="true">
-            <img src="todos/MOP.jpg" id="insignia-flor" class="pieza-insignia" data-correcta="flor-lis" draggable="true">
-            <img src="todos/MOP.jpg" id="insignia-promesa" class="pieza-insignia" data-correcta="promesa" draggable="true">
+        <div id="banco-u" class="piezas-flex-horizontal">
+            <img src="todos/MOP.jpg" id="insignia-u-asmac" class="pieza-insignia" data-u="asmac" draggable="true">
+            <img src="todos/MOP.jpg" id="insignia-u-flor" class="pieza-insignia" data-u="flor" draggable="true">
+            <img src="todos/MOP.jpg" id="insignia-u-promesa" class="pieza-insignia" data-u="promesa" draggable="true">
         </div>
     </div>
 
-    <button id="btn-terminar-juego" class="btn-regresar">COMPROBAR UNIFORME</button>
-
-    <div id="opciones-finales" class="contenido-oculto" style="display: none;">
-        <button id="btn-reintentar-juego" class="btn-regresar">REINTENTAR</button>
+    <button id="btn-comprobar-u" class="btn-regresar">COMPROBAR UNIFORME</button>
+    
+    <div id="final-u" style="display:none; margin-top: 10px;">
+        <button id="btn-reiniciar-u">REINTENTAR</button>
+        <button onclick="navegarProxima()">SIGUIENTE</button>
     </div>
     </div> 
     <button id="btn-volver-manada-uniforme" class="btn-regresar"
