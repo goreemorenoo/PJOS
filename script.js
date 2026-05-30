@@ -51,6 +51,7 @@ const pEnlace = document.getElementById('pantalla-enlace');
 
 //Pantalla Juego
 const pJuego = document.getElementById('pantalla-juego');
+const pUniforme = document.getElementById('pantalla-uniforme');
 
 //Pantalla Bibliografia
 const pBibliografia = document.getElementById('pantalla-bibliografia');
@@ -340,6 +341,15 @@ document.addEventListener('click', function (e) {
         reiniciarTablero();
     }
 });
+
+document.querySelector('.btn-uniforme').onclick = function () {
+  navegar(pJuego, pUniforme);
+};
+
+// Botón de regreso
+document.getElementById('btn-volver-manada-uniforme').onclick = function () {
+  navegar(pUniforme, pManada);
+};
 
 //NAVEGACION INTERNA BIBLIOGRAFIA
 document.querySelector('.btn-bibliografia').onclick = function () {
