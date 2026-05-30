@@ -818,7 +818,7 @@ td {
     display: flex;
     flex-direction: column; /* Esto pone la caja abajo */
     align-items: center;    /* Centra la camisola y la caja */
-    gap: 30px;
+    gap: 10px;
     margin-top: 20px;
     width: 100%;
 }

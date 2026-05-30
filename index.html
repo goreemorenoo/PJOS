@@ -1694,18 +1694,29 @@
     <div class="camisola-tablero">
         <img src="manada/camisolaVacia.jpg" class="img-base-uniforme">
 
-        <div id="zona-asmac" class="zona-dropU" data-esperado="insignia-asmac"></div>
-        <div id="zona-flor-lis" class="zona-dropU" data-esperado="insignia-flor-lis"></div>
-        <div id="zona-promesa" class="zona-dropU" data-esperado="insignia-promesa"></div>
+        <div id="zona-asmac" class="zona-drop slot-juego" data-categoria="asmac" data-objetivo="1">
+            <span class="check-victoria" style="display:none;">✓</span>
+        </div>
+        <div id="zona-flor-lis" class="zona-drop slot-juego" data-categoria="flor-lis" data-objetivo="1">
+            <span class="check-victoria" style="display:none;">✓</span>
+        </div>
+        <div id="zona-promesa" class="zona-drop slot-juego" data-categoria="promesa" data-objetivo="1">
+            <span class="check-victoria" style="display:none;">✓</span>
+        </div>
     </div>
 
     <div class="caja-insignias-inferior">
         <p class="titulo-banco">ARRASTRA LAS INSIGNIAS A SU LUGAR:</p>
-        <div class="piezas-flex-horizontal">
-            <img src="todos/MOP.jpg" id="insignia-asmac" class="pieza-insignia" draggable="true">
-            <img src="todos/MOP.jpg" id="insignia-flor-lis" class="pieza-insignia" draggable="true">
-            <img src="todos/MOP.jpg" id="insignia-promesa" class="pieza-insignia" draggable="true">
+        <div class="piezas-flex"> <img src="todos/MOP.jpg" id="insignia-asmac" class="pieza-insignia" data-correcta="asmac" draggable="true">
+            <img src="todos/MOP.jpg" id="insignia-flor" class="pieza-insignia" data-correcta="flor-lis" draggable="true">
+            <img src="todos/MOP.jpg" id="insignia-promesa" class="pieza-insignia" data-correcta="promesa" draggable="true">
         </div>
+    </div>
+
+    <button id="btn-terminar-juego" class="btn-regresar">COMPROBAR UNIFORME</button>
+
+    <div id="opciones-finales" class="contenido-oculto" style="display: none;">
+        <button id="btn-reintentar-juego" class="btn-regresar">REINTENTAR</button>
     </div>
     </div> 
     <button id="btn-volver-manada-uniforme" class="btn-regresar"

@@ -232,39 +232,46 @@ document.querySelector('.btn-juego').onclick = function () {
 document.getElementById('btn-volver-manada-juego').onclick = function () {
   navegar(pJuego, pManada);
 };
-  // --- LÓGICA JUEGO ---
-  const piezas = document.querySelectorAll('.pieza-insignia');
-  const zonas = document.querySelectorAll('.zona-drop');
+// --- LÓGICA DE ARRASTRE GLOBAL (Funciona para cualquier juego) ---
+document.addEventListener('dragstart', (e) => {
+    if (e.target.classList.contains('pieza-insignia')) {
+        e.dataTransfer.setData('idPieza', e.target.id);
+    }
+});
 
-  piezas.forEach((p) => {
-    p.addEventListener('dragstart', (e) => {
-      e.dataTransfer.setData('idPieza', e.target.id);
-    });
-  });
+document.addEventListener('dragover', (e) => {
+    if (e.target.closest('.zona-drop')) {
+        e.preventDefault();
+    }
+});
 
-  zonas.forEach((z) => {
-    z.addEventListener('dragover', (e) => e.preventDefault());
-    z.addEventListener('drop', (e) => {
-      e.preventDefault();
-      const id = e.dataTransfer.getData('idPieza');
-      const pieza = document.getElementById(id);
-      z.appendChild(pieza);
-    });
-  });
+document.addEventListener('drop', (e) => {
+    const zona = e.target.closest('.zona-drop');
+    if (zona) {
+        e.preventDefault();
+        const id = e.dataTransfer.getData('idPieza');
+        const pieza = document.getElementById(id);
+        if (pieza) {
+            zona.appendChild(pieza);
+            // Ajuste visual para que se vea bien en la camisola
+            pieza.style.width = "100%";
+            pieza.style.height = "100%";
+        }
+    }
+});
 
-// ====== SECCIÓN: VALIDACIÓN DEL JUEGO ======
-
-// Creamos la función por separado para que el código sea limpio
+// --- VALIDACIÓN MEJORADA (Evita confusiones entre juegos) ---
 function ejecutarValidacionJuego() {
-    const slots = document.querySelectorAll('.slot-juego');
-    let totalSlots = slots.length;
+    // BUSCAMOS SOLO DENTRO DE LA PANTALLA QUE NO ESTÁ OCULTA
+    const pantallaActiva = document.querySelector('.bienvenida-container:not(.contenido-oculto)');
+    if (!pantallaActiva) return;
+
+    const slots = pantallaActiva.querySelectorAll('.slot-juego');
     let aciertosTotales = 0;
 
     slots.forEach((slot) => {
         const categoriaCorrecta = slot.dataset.categoria;
-        // Si no pusiste objetivo en el HTML, por defecto busca 2
-        const objetivo = parseInt(slot.dataset.objetivo) || 2; 
-        
+        const objetivo = parseInt(slot.dataset.objetivo) || 1;
         const piezasEnZona = slot.querySelectorAll('.pieza-insignia');
         const palomita = slot.querySelector('.check-victoria');
 
@@ -275,7 +282,6 @@ function ejecutarValidacionJuego() {
             }
         });
 
-        // VALIDACIÓN: ¿Aciertos coinciden con el objetivo Y no hay basura extra?
         if (aciertosEnEsteSlot === objetivo && piezasEnZona.length === objetivo) {
             if (palomita) palomita.style.display = 'block';
             aciertosTotales++;
@@ -284,62 +290,45 @@ function ejecutarValidacionJuego() {
         }
     });
 
-    // --- ACCIONES FINALES ---
-    const btnTerminar = document.getElementById('btn-terminar-juego');
-    const opcionesFinales = document.getElementById('opciones-finales');
+    // Validamos solo contra los slots de la pantalla actual
+    if (aciertosTotales === slots.length && slots.length > 0) {
+        const btnTerminar = pantallaActiva.querySelector('#btn-terminar-juego');
+        const opcionesFinales = pantallaActiva.querySelector('#opciones-finales');
 
-    // Ocultamos el botón que acabamos de presionar
-    if (btnTerminar) btnTerminar.style.display = 'none';
-
-    // Mostramos el menú de "Reintentar / Siguiente"
-    if (opcionesFinales) {
-        opcionesFinales.classList.remove('contenido-oculto');
-        opcionesFinales.style.display = 'block'; // Asegura visibilidad
+        if (btnTerminar) btnTerminar.style.display = 'none';
+        if (opcionesFinales) {
+            opcionesFinales.classList.remove('contenido-oculto');
+            opcionesFinales.style.display = 'block';
+        }
+    } else {
+        alert("¡Cuidado Lobo! Revisa que todas las insignias estén en su lugar correcto.");
     }
 }
 
-// ====== FUNCIÓN DE REINICIO MEJORADA ======
+// --- REINICIO ADAPTADO ---
 function reiniciarTablero() {
-    console.log("Reiniciando tablero..."); // Esto aparecerá en la consola (F12) si funciona
+    const pantallaActiva = document.querySelector('.bienvenida-container:not(.contenido-oculto)');
+    const banco = pantallaActiva.querySelector('.piezas-flex');
+    const piezas = pantallaActiva.querySelectorAll('.pieza-insignia');
+    const palomitas = pantallaActiva.querySelectorAll('.check-victoria');
+    const btnTerminar = pantallaActiva.querySelector('#btn-terminar-juego');
+    const opcionesFinales = pantallaActiva.querySelector('#opciones-finales');
 
-    const banco = document.querySelector('.piezas-flex');
-    const piezas = document.querySelectorAll('.pieza-insignia');
-    const palomitas = document.querySelectorAll('.check-victoria');
-    const btnTerminar = document.getElementById('btn-terminar-juego');
-    const opcionesFinales = document.getElementById('opciones-finales');
-
-    // 1. Devolver piezas al banco
     if (banco && piezas.length > 0) {
-        piezas.forEach(pieza => {
-            banco.appendChild(pieza);
-        });
+        piezas.forEach(p => banco.appendChild(p));
     }
-
-    // 2. Limpiar visuales
     palomitas.forEach(p => p.style.display = 'none');
-
-    // 3. Resetear botones
-    if (btnTerminar) {
-        btnTerminar.style.display = 'inline-block';
-    }
-    
+    if (btnTerminar) btnTerminar.style.display = 'inline-block';
     if (opcionesFinales) {
         opcionesFinales.classList.add('contenido-oculto');
-        opcionesFinales.style.setProperty('display', 'none', 'important');
+        opcionesFinales.style.display = 'none';
     }
 }
 
-// ====== ESCUCHA DE CLICS (VERSION FINAL) ======
+// Listener de Clics (Se mantiene igual)
 document.addEventListener('click', function (e) {
-    // Detectar botón Terminar
-    if (e.target.closest('#btn-terminar-juego')) {
-        ejecutarValidacionJuego();
-    }
-    
-    // Detectar botón Reintentar
-    if (e.target.closest('#btn-reintentar-juego')) {
-        reiniciarTablero();
-    }
+    if (e.target.closest('#btn-terminar-juego')) ejecutarValidacionJuego();
+    if (e.target.closest('#btn-reintentar-juego')) reiniciarTablero();
 });
 
 document.querySelector('.btn-uniforme').onclick = function () {
@@ -351,32 +340,6 @@ document.getElementById('btn-volver-manada-uniforme').onclick = function () {
   navegar(pUniforme, pManada);
 };
 
-// --- LÓGICA ARRASTRE CAMISOLA ---
-const piezasUniforme = document.querySelectorAll('.pieza-insignia');
-const zonasUniforme = document.querySelectorAll('.zona-dropU'); // Cambiado a tu clase del HTML
-
-piezasUniforme.forEach((p) => {
-    p.addEventListener('dragstart', (e) => {
-        e.dataTransfer.setData('idPieza', e.target.id);
-    });
-});
-
-zonasUniforme.forEach((z) => {
-    z.addEventListener('dragover', (e) => e.preventDefault());
-    z.addEventListener('drop', (e) => {
-        e.preventDefault();
-        const id = e.dataTransfer.getData('idPieza');
-        const pieza = document.getElementById(id);
-        
-        // Verificamos si es el lugar correcto según el HTML
-        if (z.dataset.esperado === id) {
-            z.appendChild(pieza);
-            pieza.style.width = "100%"; // Ajusta la insignia al tamaño de la cajita
-        } else {
-            alert("¡Esa insignia no va ahí! Revisa tu manual.");
-        }
-    });
-});
 
 //NAVEGACION INTERNA BIBLIOGRAFIA
 document.querySelector('.btn-bibliografia').onclick = function () {
