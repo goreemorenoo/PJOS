@@ -1673,7 +1673,7 @@
             <button id="btn-terminar-juego" class="btn-regresar" style="background-color: #27ae60">Terminar</button>
             <div id="opciones-finales" class="contenido-oculto">
                 <button id="btn-reintentar-juego" class="btn-regresar">Reintentar</button>
-                <button class="btn-regresar btn-uniforme" style="background-color: #27ae60" >Siguiente</button>
+                <button class="btn-regresar btn-juego-u" style="background-color: #27ae60" >Siguiente</button>
             </div>
         </div>
  
@@ -1689,18 +1689,19 @@
       <p class="intro-texto">
         Acomoda las insignias en tu camisola 
       <br></p>   
-      <div class="contenedor-juego-uniforme">
-    
+<div class="contenedor-juego-uniforme">
     <div class="camisola-tablero">
         <img src="manada/camisolaVacia.jpg" class="img-base-uniforme">
 
-<div id="zona-asmac" class="zona-dropU slot-u" data-u="asmac">
+        <div id="zona-asmac" class="zona-dropU slot-u" data-u="asmac" data-objetivo="1">
             <span class="check-u" style="display:none; color: green; font-weight: bold;">✓</span>
         </div>
-        <div id="zona-flor-lis" class="zona-dropU slot-u" data-u="flor">
+        
+        <div id="zona-flor-lis" class="zona-dropU slot-u" data-u="flor" data-objetivo="1">
             <span class="check-u" style="display:none; color: green; font-weight: bold;">✓</span>
         </div>
-        <div id="zona-promesa" class="zona-dropU slot-u" data-u="promesa">
+        
+        <div id="zona-promesa" class="zona-dropU slot-u" data-u="promesa" data-objetivo="1">
             <span class="check-u" style="display:none; color: green; font-weight: bold;">✓</span>
         </div>
     </div>
@@ -1717,11 +1718,11 @@
     <button id="btn-comprobar-u" class="btn-regresar">COMPROBAR UNIFORME</button>
     
     <div id="final-u" style="display:none; margin-top: 10px;">
-        <button id="btn-reiniciar-u">REINTENTAR</button>
-        <button onclick="navegarProxima()">SIGUIENTE</button>
+        <button id="btn-reiniciar-u" class="btn-regresar">REINTENTAR</button>
+        <button class="btn-regresar" onclick="navegarProxima()">SIGUIENTE</button>
     </div>
-    </div> 
-    <button id="btn-volver-manada-uniforme" class="btn-regresar"
+  </div>
+    <button id="btn-volver-manada-u" class="btn-regresar"
       style="background-color: #64398d"
       >
         Volver a Manada

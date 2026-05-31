@@ -51,7 +51,7 @@ const pEnlace = document.getElementById('pantalla-enlace');
 
 //Pantalla Juego
 const pJuego = document.getElementById('pantalla-juego');
-const pUniforme = document.getElementById('pantalla-uniforme');
+const pJuegoU = document.getElementById('pantalla-uniforme');
 
 //Pantalla Bibliografia
 const pBibliografia = document.getElementById('pantalla-bibliografia');
@@ -342,80 +342,116 @@ document.addEventListener('click', function (e) {
     }
 });
 
-document.querySelector('.btn-uniforme').onclick = function () {
-  navegar(pJuego, pUniforme);
+// --- NAVEGACION INTERNA JUEGO U ---
+// (Asegúrate de que el botón en el HTML tenga la clase .btn-juego-u)
+document.querySelector('.btn-juego-u').onclick = function () {
+  navegar(pJuego, pJuegoU); // pJuegoU sería el ID de tu pantalla de uniforme
 };
 
-// Botón de regreso
-document.getElementById('btn-volver-manada-uniforme').onclick = function () {
-  navegar(pUniforme, pManada);
+document.getElementById('btn-volver-manada-u').onclick = function () {
+  navegar(pJuegoU, pManada);
 };
 
-// --- ARRASTRE PARA UNIFORME ---
-const piezasU = document.querySelectorAll('.img-insignia-U');
-const zonasU = document.querySelectorAll('.zona-drop-U');
+// --- LÓGICA ARRASTRE JUEGO U ---
+// Usamos selectores específicos para el uniforme
+const piezasU = document.querySelectorAll('.contenedor-juego-uniforme .pieza-insignia');
+const zonasU = document.querySelectorAll('.zona-dropU');
 
-piezasU.forEach(p => {
-    p.addEventListener('dragstart', e => {
-        e.dataTransfer.setData('idU', e.target.id);
-    });
+piezasU.forEach((p) => {
+  p.addEventListener('dragstart', (e) => {
+    // Cambiamos el nombre del dato a 'idPiezaU' para que sea único
+    e.dataTransfer.setData('idPiezaU', e.target.id);
+  });
 });
 
-zonasU.forEach(z => {
-    z.addEventListener('dragover', e => e.preventDefault());
-    z.addEventListener('drop', e => {
-        e.preventDefault();
-        const id = e.dataTransfer.getData('idU');
-        const pieza = document.getElementById(id);
-        if (pieza) {
-            z.appendChild(pieza);
-            pieza.style.width = "100%";
-            pieza.style.height = "100%";
-        }
-    });
+zonasU.forEach((z) => {
+  z.addEventListener('dragover', (e) => e.preventDefault());
+  z.addEventListener('drop', (e) => {
+    e.preventDefault();
+    const id = e.dataTransfer.getData('idPiezaU');
+    const pieza = document.getElementById(id);
+    if (pieza) {
+      z.appendChild(pieza);
+      // Ajuste para que la insignia ocupe el cuadro en la camisola
+      pieza.style.width = "100%";
+      pieza.style.height = "100%";
+    }
+  });
 });
 
-// --- VALIDACIÓN PARA UNIFORME ---
-function validarUniforme() {
-    const slots = document.querySelectorAll('.slot-uniforme-U');
-    let aciertos = 0;
+// ====== SECCIÓN: VALIDACIÓN DEL JUEGO U ======
+function ejecutarValidacionJuegoU() {
+    // Buscamos solo los slots con clase única 'slot-u'
+    const slots = document.querySelectorAll('.slot-u');
+    let aciertosTotales = 0;
 
-    slots.forEach(slot => {
-        const correcta = slot.dataset.catU;
-        const piezaEnSlot = slot.querySelector('.img-insignia-U');
-        const palomita = slot.querySelector('.check-U');
+    slots.forEach((slot) => {
+        const categoriaCorrecta = slot.dataset.u; // Usa data-u
+        const objetivo = parseInt(slot.dataset.objetivo) || 1; 
+        
+        const piezasEnZona = slot.querySelectorAll('.pieza-insignia');
+        const palomita = slot.querySelector('.check-u'); // Usa check-u
 
-        if (piezaEnSlot && piezaEnSlot.dataset.cor-U === correcta) {
+        let aciertosEnEsteSlot = 0;
+        piezasEnZona.forEach((p) => {
+            // Compara contra data-u de la imagen
+            if (p.dataset.u === categoriaCorrecta) {
+                aciertosEnEsteSlot++;
+            }
+        });
+
+        if (aciertosEnEsteSlot === objetivo && piezasEnZona.length === objetivo) {
             if (palomita) palomita.style.display = 'block';
-            aciertos++;
+            aciertosTotales++;
         } else {
             if (palomita) palomita.style.display = 'none';
         }
     });
 
-    if (aciertos === slots.length) {
-        document.getElementById('btn-validar-U').style.display = 'none';
-        document.getElementById('menu-final-U').style.display = 'block';
+    const btnTerminarU = document.getElementById('btn-comprobar-u');
+    const opcionesFinalesU = document.getElementById('final-u');
+
+    if (aciertosTotales === slots.length) {
+        if (btnTerminarU) btnTerminarU.style.display = 'none';
+        if (opcionesFinalesU) {
+            opcionesFinalesU.style.display = 'block';
+        }
     } else {
-        alert("Algo no está en su lugar. ¡Sigue intentando!");
+        alert("¡Revisa el uniforme! Algo no está en su lugar.");
     }
 }
 
-// --- REINICIO PARA UNIFORME ---
-function reiniciarUniforme() {
-    const banco = document.getElementById('banco-uniforme-U');
-    const piezas = document.querySelectorAll('.img-insignia-U');
-    const palomitas = document.querySelectorAll('.check-U');
+// ====== FUNCIÓN DE REINICIO JUEGO U ======
+function reiniciarTableroU() {
+    const bancoU = document.getElementById('banco-u');
+    const piezas = document.querySelectorAll('.contenedor-juego-uniforme .pieza-insignia');
+    const palomitas = document.querySelectorAll('.check-u');
+    const btnTerminarU = document.getElementById('btn-comprobar-u');
+    const opcionesFinalesU = document.getElementById('final-u');
 
-    piezas.forEach(p => banco.appendChild(p));
-    palomitas.forEach(pal => pal.style.display = 'none');
-    document.getElementById('btn-validar-U').style.display = 'block';
-    document.getElementById('menu-final-U').style.display = 'none';
+    if (bancoU && piezas.length > 0) {
+        piezas.forEach(pieza => {
+            bancoU.appendChild(pieza);
+            pieza.style.width = "65px"; // Tamaño original en el banco
+            pieza.style.height = "auto";
+        });
+    }
+
+    palomitas.forEach(p => p.style.display = 'none');
+    if (btnTerminarU) btnTerminarU.style.display = 'inline-block';
+    if (opcionesFinalesU) opcionesFinalesU.style.display = 'none';
 }
 
-// LISTENERS DE CLIC
-document.getElementById('btn-validar-U').addEventListener('click', validarUniforme);
-document.getElementById('btn-reintentar-U').addEventListener('click', reiniciarUniforme);
+// ====== ESCUCHA DE CLICS JUEGO U ======
+document.addEventListener('click', function (e) {
+    if (e.target.closest('#btn-comprobar-u')) {
+        ejecutarValidacionJuegoU();
+    }
+    if (e.target.closest('#btn-reiniciar-u')) {
+        reiniciarTableroU();
+    }
+});
+
 //NAVEGACION INTERNA BIBLIOGRAFIA
 document.querySelector('.btn-bibliografia').onclick = function () {
   navegar(pManada, pBibliografia);
