@@ -853,8 +853,8 @@ td {
     gap: 15px;
 }
 
-.pieza-insignia {
-    width: 65px;
+.pieza-insigniaU {
+    width: 60px;
     cursor: grab;
     transition: transform 0.2s;
 }
