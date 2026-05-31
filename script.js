@@ -298,37 +298,37 @@ function ejecutarValidacionJuego() {
     }
 }
 
-// ====== FUNCIÓN DE REINICIO MEJORADA ======
 function reiniciarTablero() {
-    console.log("Reiniciando tablero..."); // Esto aparecerá en la consola (F12) si funciona
-
-    const banco = document.querySelector('.piezas-flex');
     const piezas = document.querySelectorAll('.pieza-insignia');
     const palomitas = document.querySelectorAll('.check-victoria');
     const btnTerminar = document.getElementById('btn-terminar-juego');
     const opcionesFinales = document.getElementById('opciones-finales');
 
-    // 1. Devolver piezas al banco
-    if (banco && piezas.length > 0) {
-        piezas.forEach(pieza => {
-            banco.appendChild(pieza);
-        });
-    }
+    // 1. Devolver cada pieza a su propio banco de origen
+    piezas.forEach(pieza => {
+        const idDelBancoOrigen = pieza.dataset.origen; // Leemos el ID del banco
+        const bancoDestino = document.getElementById(idDelBancoOrigen);
 
-    // 2. Limpiar visuales
+        if (bancoDestino) {
+            bancoDestino.appendChild(pieza);
+        } else {
+            // Si no tiene data-origen, la manda al banco general por si las dudas
+            const bancoGeneral = document.querySelector('.piezas-flex');
+            if (bancoGeneral) bancoGeneral.appendChild(pieza);
+        }
+    });
+
+    // 2. Limpiar visuales (palomitas)
     palomitas.forEach(p => p.style.display = 'none');
 
     // 3. Resetear botones
-    if (btnTerminar) {
-        btnTerminar.style.display = 'inline-block';
-    }
+    if (btnTerminar) btnTerminar.style.display = 'inline-block';
     
     if (opcionesFinales) {
         opcionesFinales.classList.add('contenido-oculto');
-        opcionesFinales.style.setProperty('display', 'none', 'important');
+        opcionesFinales.style.display = 'none';
     }
 }
-
 // ====== ESCUCHA DE CLICS (VERSION FINAL) ======
 document.addEventListener('click', function (e) {
     // Detectar botón Terminar
