@@ -869,6 +869,22 @@ td {
     border-radius: 8px;
     z-index: 10
 }
+/* Duplicado para el Uniforme */
+.slot-u {
+    position: absolute; /* Para que flote sobre la imagen */
+    z-index: 10;
+}
+.check-u {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 1.5rem;
+    color: #27ae60;
+    display: none; /* Se activa por JS */
+    z-index: 20;
+    background: white;
+    border-radius: 50%;
+}
 
 #zona-asmac { top: 18%; left: 20%; }
 #zona-flor-lis { top: 22%; left: 68%; }
