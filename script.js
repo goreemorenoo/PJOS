@@ -354,7 +354,7 @@ document.getElementById('btn-volver-manada-u').onclick = function () {
 
 // --- LÓGICA ARRASTRE JUEGO U ---
 // Usamos selectores específicos para el uniforme
-const piezasU = document.querySelectorAll('.contenedor-juego-uniforme .pieza-insignia');
+const piezasU = document.querySelectorAll('.contenedor-juego-uniforme .pieza-insigniaU');
 const zonasU = document.querySelectorAll('.zona-dropU');
 
 piezasU.forEach((p) => {
@@ -369,12 +369,12 @@ zonasU.forEach((z) => {
   z.addEventListener('drop', (e) => {
     e.preventDefault();
     const id = e.dataTransfer.getData('idPiezaU');
-    const pieza = document.getElementById(id);
-    if (pieza) {
-      z.appendChild(pieza);
+    const piezaU = document.getElementById(id);
+    if (piezaU) {
+      z.appendChild(piezaU);
       // Ajuste para que la insignia ocupe el cuadro en la camisola
-      pieza.style.width = "100%";
-      pieza.style.height = "100%";
+      piezaU.style.width = "100%";
+      piezaU.style.height = "100%";
     }
   });
 });
@@ -382,36 +382,36 @@ zonasU.forEach((z) => {
 // ====== SECCIÓN: VALIDACIÓN DEL JUEGO U ======
 function ejecutarValidacionJuegoU() {
     // Buscamos solo los slots con clase única 'slot-u'
-    const slots = document.querySelectorAll('.slot-u');
-    let aciertosTotales = 0;
+    const slotsU = document.querySelectorAll('.slot-u');
+    let aciertosTotalesU = 0;
 
-    slots.forEach((slot) => {
-        const categoriaCorrecta = slot.dataset.u; // Usa data-u
-        const objetivo = parseInt(slot.dataset.objetivo) || 1; 
+    slotsU.forEach((slot) => {
+        const categoriaCorrectaU = slot.dataset.u; // Usa data-u
+        const objetivoU = parseInt(slot.dataset.objetivo) || 1; 
         
-        const piezasEnZona = slot.querySelectorAll('.pieza-insignia');
-        const palomita = slot.querySelector('.check-u'); // Usa check-u
+        const piezasEnZonaU = slot.querySelectorAll('.pieza-insigniaU');
+        const palomitaU = slot.querySelector('.check-u'); // Usa check-u
 
-        let aciertosEnEsteSlot = 0;
-        piezasEnZona.forEach((p) => {
+        let aciertosEnEsteSlotU = 0;
+        piezasEnZonaU.forEach((p) => {
             // Compara contra data-u de la imagen
-            if (p.dataset.u === categoriaCorrecta) {
-                aciertosEnEsteSlot++;
+            if (p.dataset.u === categoriaCorrectaU) {
+                aciertosEnEsteSlotU++;
             }
         });
 
-        if (aciertosEnEsteSlot === objetivo && piezasEnZona.length === objetivo) {
-            if (palomita) palomita.style.display = 'block';
-            aciertosTotales++;
+        if (aciertosEnEsteSlotU === objetivoU && piezasEnZonaU.length === objetivoU) {
+            if (palomitaU) palomitaU.style.display = 'block';
+            aciertosTotalesU++;
         } else {
-            if (palomita) palomita.style.display = 'none';
+            if (palomitaU) palomitaU.style.display = 'none';
         }
     });
 
     const btnTerminarU = document.getElementById('btn-comprobar-u');
     const opcionesFinalesU = document.getElementById('final-u');
 
-    if (aciertosTotales === slots.length) {
+    if (aciertosTotalesU === slotsU.length) {
         if (btnTerminarU) btnTerminarU.style.display = 'none';
         if (opcionesFinalesU) {
             opcionesFinalesU.style.display = 'block';
@@ -424,20 +424,20 @@ function ejecutarValidacionJuegoU() {
 // ====== FUNCIÓN DE REINICIO JUEGO U ======
 function reiniciarTableroU() {
     const bancoU = document.getElementById('banco-u');
-    const piezas = document.querySelectorAll('.contenedor-juego-uniforme .pieza-insignia');
-    const palomitas = document.querySelectorAll('.check-u');
+    const piezasU = document.querySelectorAll('.contenedor-juego-uniforme .pieza-insigniaU');
+    const palomitasU = document.querySelectorAll('.check-u');
     const btnTerminarU = document.getElementById('btn-comprobar-u');
     const opcionesFinalesU = document.getElementById('final-u');
 
-    if (bancoU && piezas.length > 0) {
-        piezas.forEach(pieza => {
+    if (bancoU && piezasU.length > 0) {
+        piezasU.forEach(pieza => {
             bancoU.appendChild(pieza);
             pieza.style.width = "65px"; // Tamaño original en el banco
             pieza.style.height = "auto";
         });
     }
 
-    palomitas.forEach(p => p.style.display = 'none');
+    palomitasU.forEach(p => p.style.display = 'none');
     if (btnTerminarU) btnTerminarU.style.display = 'inline-block';
     if (opcionesFinalesU) opcionesFinalesU.style.display = 'none';
 }
