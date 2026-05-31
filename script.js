@@ -299,36 +299,33 @@ function ejecutarValidacionJuego() {
 }
 
 function reiniciarTablero() {
+
     const piezas = document.querySelectorAll('.pieza-insignia');
     const palomitas = document.querySelectorAll('.check-victoria');
     const btnTerminar = document.getElementById('btn-terminar-juego');
     const opcionesFinales = document.getElementById('opciones-finales');
 
-    // 1. Devolver cada pieza a su propio banco de origen
     piezas.forEach(pieza => {
-        const idDelBancoOrigen = pieza.dataset.origen; // Leemos el ID del banco
-        const bancoDestino = document.getElementById(idDelBancoOrigen);
+        // Obtenemos el nombre del banco desde el data-origen
+        const idHogar = pieza.dataset.origen; 
+        const hogar = document.getElementById(idHogar);
 
-        if (bancoDestino) {
-            bancoDestino.appendChild(pieza);
+        if (hogar) {
+            hogar.appendChild(pieza);
         } else {
-            // Si no tiene data-origen, la manda al banco general por si las dudas
-            const bancoGeneral = document.querySelector('.piezas-flex');
-            if (bancoGeneral) bancoGeneral.appendChild(pieza);
+            console.warn(`La pieza ${pieza.id} no tiene un banco de origen válido.`);
         }
     });
 
-    // 2. Limpiar visuales (palomitas)
+    // Limpiar visuales
     palomitas.forEach(p => p.style.display = 'none');
-
-    // 3. Resetear botones
     if (btnTerminar) btnTerminar.style.display = 'inline-block';
-    
     if (opcionesFinales) {
         opcionesFinales.classList.add('contenido-oculto');
         opcionesFinales.style.display = 'none';
     }
 }
+
 // ====== ESCUCHA DE CLICS (VERSION FINAL) ======
 document.addEventListener('click', function (e) {
     // Detectar botón Terminar
