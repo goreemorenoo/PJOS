@@ -813,6 +813,111 @@ td {
     font-style: italic; /* Opcional: para diferenciarla más */
 }
 
+/* Contenedor principal ahora en columna */
+.contenedor-juego-uniforme {
+    display: flex;
+    flex-direction: column; /* Esto pone la caja abajo */
+    align-items: center;    /* Centra la camisola y la caja */
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.camisola-tablero {
+    position: relative;
+    width: 100%;
+    max-width: 700px; /* Tamaño máximo para que no se vea gigante */
+}
+
+.img-base-uniforme {
+    width: 100%;
+    display: block;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Caja de insignias horizontal (debajo de la foto) */
+.caja-insignias-inferior {
+    background-color: #ffffff;
+    border: 2px solid #64398d;
+    border-radius: 20px;
+    padding: 15px;
+    width: 100%;
+    max-width: 700px;
+}
+
+.piezas-flex-horizontal {
+    display: flex;
+    justify-content: center; /* Alinea las insignias una al lado de otra */
+    flex-wrap: wrap;         /* Si son muchas, se pasan a la siguiente línea */
+    gap: 15px;
+}
+
+.pieza-insigniaU {
+    width: 10%;
+    cursor: grab;
+    transition: transform 0.2s;
+}
+
+/* Estilo de las zonas de soltado (Drop Zones) */
+.zona-dropU {
+    position: absolute;
+    width: 6%;
+    height: 10%;
+    border: 2px dashed rgba(100, 57, 141, 0.5);
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    z-index: 10
+}
+/* Duplicado para el Uniforme */
+.slot-u {
+    position: absolute; /* Para que flote sobre la imagen */
+    z-index: 10;
+}
+.check-u {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 1.5rem;
+    color: #27ae60;
+    display: none; /* Se activa por JS */
+    z-index: 20;
+    background: white;
+    border-radius: 50%;
+}
+
+#zona-CN { top: 31%; left: 15%; }
+#zona-SGS{top:21%;left:16.5%;}
+#zona-PTT{top:31%;left:21%}
+#zona-pin{top:45%;left:23%}
+
+#zona-MOP { top: 57%; left: 36%; }
+#zona-amarilla{top:26%; left:38%}
+#zona-verde{top:23%; left:35%}
+#zona-roja{top:23%; left:41%}
+#zona-azul{top:35%; left:38%}
+#zona-Kaa{top:70%; left: 75%}
+#zona-E1{top:26%; left: 72%}
+#zona-E2{top:34%; left: 69%}
+#zona-E3{top:42%; left: 66%}
+#zona-E4{top:50%; left: 66%}
+#zona-E5{top:58%; left: 67%}
+#zona-E6{top:66%; left: 69%}
+#zona-E7{top:26%; left: 86%}
+#zona-E8{top:34%; left: 89%}
+#zona-E9{top:42%; left: 92%}
+#zona-E10{top:50%; left: 92%}
+#zona-E11{top:58%; left: 91%}
+#zona-E12{top:66%; left: 90%}
+#zona-C1{top:44%; left:76%}
+#zona-C2{top:44%; left:82%}
+#zona-C3{top:50%; left:73%}
+#zona-C4{top:50%; left:85%}
+#zona-rastro{top:54%; left:79%}
+
+
+
+
 /* Contenedor de cada libro/link */
 .bibliografia-item {
     background-color: rgba(255, 255, 255, 0.1); /* Fondo ligero */

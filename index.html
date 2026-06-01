@@ -1524,9 +1524,9 @@
           </div>          
         </div>
         <div class="banco-piezas">
-            <div class="piezas-flex">
-                <img src="manada/pantanos/planeta.jpg" class="pieza-insignia" id="p2" data-correcta="planeta" draggable="true">
-                <img src="manada/pantanos/naturaleza.jpg" class="pieza-insignia" id="p3" data-correcta="naturaleza" draggable="true">
+            <div id="banco-pantanos" class="piezas-flex">
+                <img src="manada/pantanos/planeta.jpg" class="pieza-insignia" id="p2" data-origen="banco-pantanos" data-correcta="planeta" draggable="true">
+                <img src="manada/pantanos/naturaleza.jpg" class="pieza-insignia" id="p3" data-origen="banco-pantanos" data-correcta="naturaleza" draggable="true">
             </div>
         </div>
 
@@ -1566,10 +1566,10 @@
           </div>
         </div>
         <div class="banco-piezas">
-            <div class="piezas-flex">
-                <img src="manada/dekkan/PAC.jpg" class="pieza-insignia" id="p6" data-correcta="paz" draggable="true">
-                <img src="manada/dekkan/DI.jpg" class="pieza-insignia" id="p7" data-correcta="diversidad" draggable="true">
-                <img src="manada/dekkan/CP.jpg" class="pieza-insignia" id="p8" data-correcta="cultura" draggable="true">
+            <div id="banco-dekkan" class="piezas-flex">
+                <img src="manada/dekkan/PAC.jpg" class="pieza-insignia" id="p6" data-origen="banco-dekkan" data-correcta="paz" draggable="true">
+                <img src="manada/dekkan/DI.jpg" class="pieza-insignia" id="p7" data-origen="banco-dekkan" data-correcta="diversidad" draggable="true">
+                <img src="manada/dekkan/CP.jpg" class="pieza-insignia" id="p8" data-origen="banco-dekkan" data-correcta="cultura" draggable="true">
             </div>
         </div>
 
@@ -1618,11 +1618,11 @@
           </div>                    
         </div>
         <div class="banco-piezas">
-            <div class="piezas-flex">
-                <img src="manada/colinas/Artes.jpg" class="pieza-insignia" id="p4" data-correcta="artes" draggable="true">
-                <img src="manada/colinas/Liderazgo.jpg" class="pieza-insignia" id="p5" data-correcta="liderazgo" draggable="true">
-                <img src="manada/colinas/Emprendimiento.jpg" class="pieza-insignia" id="p11" data-correcta="Emprendimiento" draggable="true">
-                <img src="manada/colinas/Tecnologia.jpg" class="pieza-insignia" id="p12" data-correcta="tecnologia" draggable="true">
+            <div id="banco-baloo" class="piezas-flex">
+                <img src="manada/colinas/Artes.jpg" class="pieza-insignia" id="p4" data-origen="banco-baloo" data-correcta="artes" draggable="true">
+                <img src="manada/colinas/Liderazgo.jpg" class="pieza-insignia" id="p5" data-origen="banco-baloo" data-correcta="liderazgo" draggable="true">
+                <img src="manada/colinas/Emprendimiento.jpg" class="pieza-insignia" id="p11" data-origen="banco-baloo" data-correcta="Emprendimiento" draggable="true">
+                <img src="manada/colinas/Tecnologia.jpg" class="pieza-insignia" id="p12" data-origen="banco-baloo" data-correcta="tecnologia" draggable="true">
             </div>
         </div>  
 
@@ -1662,10 +1662,10 @@
           </div>
         </div>
         <div class="banco-piezas">
-            <div class="piezas-flex">
-                <img src="manada/cubil/DCF.jpg" class="pieza-insignia" id="p1" data-correcta="deporte" draggable="true">
-                <img src="manada/cubil/ASP.jpg" class="pieza-insignia" id="p9" data-correcta="ASP" draggable="true">
-                <img src="manada/cubil/SaludE.jpg" class="pieza-insignia" id="p10" data-correcta="Salud" draggable="true">
+            <div id="banco-cubil" class="piezas-flex">
+                <img src="manada/cubil/DCF.jpg" class="pieza-insignia" id="p1" data-origen="banco-cubil" data-correcta="deporte" draggable="true">
+                <img src="manada/cubil/ASP.jpg" class="pieza-insignia" id="p9" data-origen="banco-cubil" data-correcta="ASP" draggable="true">
+                <img src="manada/cubil/SaludE.jpg" class="pieza-insignia" id="p10" data-origen="banco-cubil" data-correcta="Salud" draggable="true">
             </div>
         </div> 
 
@@ -1673,7 +1673,7 @@
             <button id="btn-terminar-juego" class="btn-regresar" style="background-color: #27ae60">Terminar</button>
             <div id="opciones-finales" class="contenido-oculto">
                 <button id="btn-reintentar-juego" class="btn-regresar">Reintentar</button>
-                <button class="btn-regresar" style="background-color: #27ae60" onclick="avisoDesarrollo()">Siguiente</button>
+                <button class="btn-regresar btn-juego-u" style="background-color: #27ae60" >Siguiente</button>
             </div>
         </div>
  
@@ -1683,6 +1683,144 @@
         Volver a Manada
     </button>
   </div> 
+
+  <div id="pantalla-uniforme" class="contenido-oculto pagina-juego">
+      <h1 class="titulo-juego" style="margin: 0; display: inline-block;">ES HORA DE JUGAR</h1>
+      <p class="intro-texto">
+        Acomoda las insignias en tu camisola (De preferencia juega en computadora o tablet)
+      <br></p>   
+<div class="contenedor-juego-uniforme">
+    <div class="camisola-tablero">
+        <img src="manada/camisolaVacia.jpg" class="img-base-uniforme">
+        <div id="zona-CN" class="zona-dropU slot-u" data-u="CN" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>
+        <div id="zona-SGS" class="zona-dropU slot-u" data-u="SGS" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>   
+        <div id="zona-PTT" class="zona-dropU slot-u" data-u="PTT" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>   
+        <div id="zona-pin" class="zona-dropU slot-u" data-u="pin" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>                  
+        <div id="zona-MOP" class="zona-dropU slot-u" data-u="MOP" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>
+        <div id="zona-amarilla" class="zona-dropU slot-u" data-u="amarilla" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>   
+        <div id="zona-verde" class="zona-dropU slot-u" data-u="verde" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>                 
+        <div id="zona-roja" class="zona-dropU slot-u" data-u="roja" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>   
+        <div id="zona-azul" class="zona-dropU slot-u" data-u="azul" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>   
+        <div id="zona-Kaa" class="zona-dropU slot-u" data-u="kaa" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>                   
+        <div id="zona-E1" class="zona-dropU slot-u" data-u="especialidad" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>  
+        <div id="zona-E2" class="zona-dropU slot-u" data-u="especialidad" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>   
+        <div id="zona-E3" class="zona-dropU slot-u" data-u="especialidad" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>  
+        <div id="zona-E4" class="zona-dropU slot-u" data-u="especialidad" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>                           
+        <div id="zona-E5" class="zona-dropU slot-u" data-u="especialidad" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>  
+        <div id="zona-E6" class="zona-dropU slot-u" data-u="especialidad" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>    
+        <div id="zona-E7" class="zona-dropU slot-u" data-u="especialidad" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>    
+        <div id="zona-E8" class="zona-dropU slot-u" data-u="especialidad" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div> 
+        <div id="zona-E9" class="zona-dropU slot-u" data-u="especialidad" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div> 
+        <div id="zona-E10" class="zona-dropU slot-u" data-u="especialidad" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div> 
+        <div id="zona-E11" class="zona-dropU slot-u" data-u="especialidad" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div> 
+        <div id="zona-E12" class="zona-dropU slot-u" data-u="especialidad" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>  
+        <div id="zona-rastro" class="zona-dropU slot-u" data-u="rastro" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>          
+        <div id="zona-C1" class="zona-dropU slot-u" data-u="cazadero" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>    
+        <div id="zona-C2" class="zona-dropU slot-u" data-u="cazadero" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>  
+        <div id="zona-C3" class="zona-dropU slot-u" data-u="cazadero" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div> 
+        <div id="zona-C4" class="zona-dropU slot-u" data-u="cazadero" data-objetivoU="1">
+            <span class="check-u" >✅</span>
+        </div>                                                                              
+    </div>
+
+    <div class="caja-insignias-inferior">
+        <p class="titulo-banco">ARRASTRA LAS INSIGNIAS A SU LUGAR:</p>
+        <div id="banco-u" class="piezas-flex-horizontal">
+            <img src="manada/uniforme/CN-removebg-preview.png" id="insignia-u-CN" class="pieza-insigniaU" data-u="CN" draggable="true">
+            <img src="manada/uniforme/MOP-removebg-preview.png" id="insignia-u-MOP" class="pieza-insigniaU" data-u="MOP" draggable="true">
+            <img src="manada/uniforme/SGS-removebg-preview.png" id="insignia-u-SGS" class="pieza-insigniaU" data-u="SGS" draggable="true">        
+            <img src="manada/uniforme/PTT-removebg-preview.png" id="insignia-u-PTT" class="pieza-insigniaU" data-u="PTT" draggable="true">          
+            <img src="manada/uniforme/image-removebg-preview.png" id="insignia-u-pin" class="pieza-insigniaU" data-u="pin" draggable="true">                      
+            <img src="manada/uniforme/amarilla-removebg-preview.png" id="insignia-u-amarilla" class="pieza-insigniaU" data-u="amarilla" draggable="true">
+            <img src="manada/uniforme/verde-removebg-preview.png" id="insignia-u-verde" class="pieza-insigniaU" data-u="verde" draggable="true">
+            <img src="manada/uniforme/roja-removebg-preview.png" id="insignia-u-roja" class="pieza-insigniaU" data-u="roja" draggable="true">
+            <img src="manada/uniforme/azul-removebg-preview.png" id="insignia-u-azul" class="pieza-insigniaU" data-u="azul" draggable="true">          
+            <img src="manada/uniforme/Kaa-removebg-preview.png" id="insignia-u-kaa" class="pieza-insigniaU" data-u="kaa" draggable="true">                      
+            <img src="manada/uniforme/Artes-removebg-preview.png" id="insignia-u-1" class="pieza-insigniaU" data-u="especialidad" draggable="true">          
+            <img src="manada/uniforme/ASP-removebg-preview.png" id="insignia-u-2" class="pieza-insigniaU" data-u="especialidad" draggable="true">          
+            <img src="manada/uniforme/CP-removebg-preview.png" id="insignia-u-3" class="pieza-insigniaU" data-u="especialidad" draggable="true">          
+            <img src="manada/uniforme/DCF-removebg-preview.png" id="insignia-u-4" class="pieza-insigniaU" data-u="especialidad" draggable="true">          
+            <img src="manada/uniforme/DI.png" id="insignia-u-5" class="pieza-insigniaU" data-u="especialidad" draggable="true">          
+            <img src="manada/uniforme/Emprendimiento-removebg-preview.png" id="insignia-u-6" class="pieza-insigniaU" data-u="especialidad" draggable="true">          
+            <img src="manada/uniforme/Liderazgo-removebg-preview.png" id="insignia-u-7" class="pieza-insigniaU" data-u="especialidad" draggable="true">          
+            <img src="manada/uniforme/naturaleza-removebg-preview.png" id="insignia-u-8" class="pieza-insigniaU" data-u="especialidad" draggable="true">          
+            <img src="manada/uniforme/PAC-removebg-preview.png" id="insignia-u-9" class="pieza-insigniaU" data-u="especialidad" draggable="true">          
+            <img src="manada/uniforme/planeta-removebg-preview.png" id="insignia-u-10" class="pieza-insigniaU" data-u="especialidad" draggable="true">          
+            <img src="manada/uniforme/Tecnologia-removebg-preview.png" id="insignia-u-11" class="pieza-insigniaU" data-u="especialidad" draggable="true">          
+            <img src="manada/uniforme/SaludE-removebg-preview.png" id="insignia-u-12" class="pieza-insigniaU" data-u="especialidad" draggable="true">          
+            <img src="manada/uniforme/rastro-removebg-preview.png" id="insignia-u-rastro" class="pieza-insigniaU" data-u="rastro" draggable="true">          
+            <img src="manada/uniforme/colinas-removebg-preview.png" id="insignia-u-baloo" class="pieza-insigniaU" data-u="cazadero" draggable="true">          
+            <img src="manada/uniforme/pantanos-removebg-preview.png" id="insignia-u-bagheera" class="pieza-insigniaU" data-u="cazadero" draggable="true">          
+            <img src="manada/uniforme/cubil-removebg-preview.png" id="insignia-u-raksha" class="pieza-insigniaU" data-u="cazadero" draggable="true">          
+            <img src="manada/uniforme/DEKKAN-removebg-preview.png" id="insignia-u-hermano" class="pieza-insigniaU" data-u="cazadero" draggable="true">          
+
+          </div>
+    </div>
+
+    <button id="btn-comprobar-u" class="btn-regresar">COMPROBAR UNIFORME</button>
+    
+    <div id="final-u" style="display:none; margin-top: 10px;">
+        <button id="btn-reiniciar-u" class="btn-regresar">REINTENTAR</button>
+    </div>
+  </div>
+    <button id="btn-volver-manada-u" class="btn-regresar"
+      style="background-color: #64398d"
+      >
+        Volver a Manada
+    </button>
+  </div>
   
     <div id="pantalla-bibliografia" class="contenido-oculto pagina-bibliografia">
       <h1 class="titulo-juego" style="margin: 0; display: inline-block;">BIBLIOGRAFÍA</h1>

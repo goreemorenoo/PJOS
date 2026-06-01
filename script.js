@@ -51,6 +51,7 @@ const pEnlace = document.getElementById('pantalla-enlace');
 
 //Pantalla Juego
 const pJuego = document.getElementById('pantalla-juego');
+const pJuegoU = document.getElementById('pantalla-uniforme');
 
 //Pantalla Bibliografia
 const pBibliografia = document.getElementById('pantalla-bibliografia');
@@ -297,34 +298,31 @@ function ejecutarValidacionJuego() {
     }
 }
 
-// ====== FUNCIÓN DE REINICIO MEJORADA ======
 function reiniciarTablero() {
-    console.log("Reiniciando tablero..."); // Esto aparecerá en la consola (F12) si funciona
 
-    const banco = document.querySelector('.piezas-flex');
     const piezas = document.querySelectorAll('.pieza-insignia');
     const palomitas = document.querySelectorAll('.check-victoria');
     const btnTerminar = document.getElementById('btn-terminar-juego');
     const opcionesFinales = document.getElementById('opciones-finales');
 
-    // 1. Devolver piezas al banco
-    if (banco && piezas.length > 0) {
-        piezas.forEach(pieza => {
-            banco.appendChild(pieza);
-        });
-    }
+    piezas.forEach(pieza => {
+        // Obtenemos el nombre del banco desde el data-origen
+        const idHogar = pieza.dataset.origen; 
+        const hogar = document.getElementById(idHogar);
 
-    // 2. Limpiar visuales
+        if (hogar) {
+            hogar.appendChild(pieza);
+        } else {
+            console.warn(`La pieza ${pieza.id} no tiene un banco de origen válido.`);
+        }
+    });
+
+    // Limpiar visuales
     palomitas.forEach(p => p.style.display = 'none');
-
-    // 3. Resetear botones
-    if (btnTerminar) {
-        btnTerminar.style.display = 'inline-block';
-    }
-    
+    if (btnTerminar) btnTerminar.style.display = 'inline-block';
     if (opcionesFinales) {
         opcionesFinales.classList.add('contenido-oculto');
-        opcionesFinales.style.setProperty('display', 'none', 'important');
+        opcionesFinales.style.display = 'none';
     }
 }
 
@@ -338,6 +336,115 @@ document.addEventListener('click', function (e) {
     // Detectar botón Reintentar
     if (e.target.closest('#btn-reintentar-juego')) {
         reiniciarTablero();
+    }
+});
+
+// --- NAVEGACION INTERNA JUEGO U ---
+// (Asegúrate de que el botón en el HTML tenga la clase .btn-juego-u)
+document.querySelector('.btn-juego-u').onclick = function () {
+  navegar(pJuego, pJuegoU); // pJuegoU sería el ID de tu pantalla de uniforme
+};
+
+document.getElementById('btn-volver-manada-u').onclick = function () {
+  navegar(pJuegoU, pManada);
+};
+
+// --- LÓGICA ARRASTRE JUEGO U ---
+// Usamos selectores específicos para el uniforme
+const piezasU = document.querySelectorAll('.contenedor-juego-uniforme .pieza-insigniaU');
+const zonasU = document.querySelectorAll('.zona-dropU');
+
+piezasU.forEach((p) => {
+  p.addEventListener('dragstart', (e) => {
+    // Cambiamos el nombre del dato a 'idPiezaU' para que sea único
+    e.dataTransfer.setData('idPiezaU', e.target.id);
+  });
+});
+
+zonasU.forEach((z) => {
+  z.addEventListener('dragover', (e) => e.preventDefault());
+  z.addEventListener('drop', (e) => {
+    e.preventDefault();
+    const id = e.dataTransfer.getData('idPiezaU');
+    const piezaU = document.getElementById(id);
+    if (piezaU) {
+      z.appendChild(piezaU);
+      // Ajuste para que la insignia ocupe el cuadro en la camisola
+      piezaU.style.width = "100%";
+      piezaU.style.height = "100%";
+    }
+  });
+});
+
+// ====== SECCIÓN: VALIDACIÓN DEL JUEGO U ======
+function ejecutarValidacionJuegoU() {
+    // Buscamos solo los slots con clase única 'slot-u'
+    const slotsU = document.querySelectorAll('.slot-u');
+    let aciertosTotalesU = 0;
+
+    slotsU.forEach((slot) => {
+        const categoriaCorrectaU = slot.dataset.u; // Usa data-u
+        const objetivoU = parseInt(slot.dataset.objetivo) || 1; 
+        
+        const piezasEnZonaU = slot.querySelectorAll('.pieza-insigniaU');
+        const palomitaU = slot.querySelector('.check-u'); // Usa check-u
+
+        let aciertosEnEsteSlotU = 0;
+        piezasEnZonaU.forEach((p) => {
+            // Compara contra data-u de la imagen
+            if (p.dataset.u === categoriaCorrectaU) {
+                aciertosEnEsteSlotU++;
+            }
+        });
+
+        if (aciertosEnEsteSlotU === objetivoU && piezasEnZonaU.length === objetivoU) {
+            if (palomitaU) palomitaU.style.display = 'block';
+            aciertosTotalesU++;
+        } else {
+            if (palomitaU) palomitaU.style.display = 'none';
+        }
+    });
+
+    const btnTerminarU = document.getElementById('btn-comprobar-u');
+    const opcionesFinalesU = document.getElementById('final-u');
+
+    if(btnTerminarU) btnTerminarU.style.display='none';
+
+    if (opcionesFinalesU) {
+      opcionesFinalesU.classList.remove('contenido-oculto')
+      opcionesFinalesU.style.display = 'block';
+        }
+    } 
+
+
+// ====== FUNCIÓN DE REINICIO JUEGO U ======
+function reiniciarTableroU() {
+    const bancoU = document.getElementById('banco-u');
+    const piezasU = document.querySelectorAll('.contenedor-juego-uniforme .pieza-insigniaU');
+    const palomitasU = document.querySelectorAll('.check-u');
+    const btnTerminarU = document.getElementById('btn-comprobar-u');
+    const opcionesFinalesU = document.getElementById('final-u');
+
+    if (bancoU && piezasU.length > 0) {
+        piezasU.forEach(pieza => {
+            bancoU.appendChild(pieza);
+            pieza.style.width = "65px"; // Tamaño original en el banco
+            pieza.style.height = "auto";
+        });
+    }
+
+    palomitasU.forEach(p => p.style.display = 'none');
+    if (btnTerminarU) btnTerminarU.style.display = 'inline-block';
+    if (opcionesFinalesU) opcionesFinalesU.style.display = 'none';
+}
+
+// ====== ESCUCHA DE CLICS JUEGO U ======
+document.addEventListener('click', function (e) {
+    if (e.target.closest('#btn-comprobar-u')) {
+        ejecutarValidacionJuegoU();
+    }
+    if (e.target.closest('#btn-reiniciar-u')) {
+        reiniciarTableroU();
     }
 });
 
