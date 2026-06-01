@@ -408,15 +408,14 @@ function ejecutarValidacionJuegoU() {
     const btnTerminarU = document.getElementById('btn-comprobar-u');
     const opcionesFinalesU = document.getElementById('final-u');
 
-    if (aciertosTotalesU === slotsU.length) {
-        if (btnTerminarU) btnTerminarU.style.display = 'none';
-        if (opcionesFinalesU) {
-            opcionesFinalesU.style.display = 'block';
+    if(btnTerminarU) btnTerminarU.style.display='none';
+
+    if (opcionesFinalesU) {
+      opcionesFinalesU.classList.remove('contenido-oculto')
+      opcionesFinalesU.style.display = 'block';
         }
-    } else {
-        alert("¡Revisa el uniforme! Algo no está en su lugar.");
-    }
-}
+    } 
+
 
 // ====== FUNCIÓN DE REINICIO JUEGO U ======
 function reiniciarTableroU() {

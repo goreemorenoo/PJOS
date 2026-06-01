@@ -891,8 +891,10 @@ td {
 #zona-PTT{top:31%;left:21%}
 #zona-MOP { top: 57%; left: 36%; }
 #zona-amarilla{top:26%; left:38%}
-#zona-verde{top:21%; left:35%}
-#zona-roja{top:21%; left:41%}
+#zona-verde{top:23%; left:35%}
+#zona-roja{top:23%; left:41%}
+#zona-azul{top:32%; left:38%}
+
 
 
 /* Contenedor de cada libro/link */
