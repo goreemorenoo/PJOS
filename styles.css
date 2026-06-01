@@ -862,8 +862,8 @@ td {
 /* Estilo de las zonas de soltado (Drop Zones) */
 .zona-dropU {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 45px;
     border: 2px dashed rgba(100, 57, 141, 0.5);
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 8px;
@@ -886,9 +886,15 @@ td {
     border-radius: 50%;
 }
 
-#zona-asmac { top: 57%; left: 36%; }
-#zona-flor-lis { top: 22%; left: 68%; }
-#zona-promesa { top: 35%; left: 68%; }
+#zona-CN { top: 31%; left: 18%; }
+#zona-SGS { top: 22%; left: 68%; }
+#zona-PTT { top: 35%; left: 68%; }
+#zona-amarilla { top: 30%; left: 60%; }
+#zona-verde { top: 25%; left: 28%; }
+#zona-azul { top: 45%; left: 48%; }
+#zona-rojo { top: 55%; left: 58%; }
+#zona-MOP { top: 57%; left: 35%; }
+
 
 /* Contenedor de cada libro/link */
 .bibliografia-item {
