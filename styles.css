@@ -889,6 +889,8 @@ td {
 #zona-CN { top: 31%; left: 15%; }
 #zona-SGS{top:21%;left:16.5%;}
 #zona-PTT{top:31%;left:21%}
+#zona-pin{top:50%;left:25%}
+
 #zona-MOP { top: 57%; left: 36%; }
 #zona-amarilla{top:26%; left:38%}
 #zona-verde{top:23%; left:35%}
@@ -906,12 +908,12 @@ td {
 #zona-E9{top:42%; left: 91%}
 #zona-E10{top:50%; left: 91%}
 #zona-E11{top:58%; left: 90%}
-#zona-E12{top:66%; left: 81%}
+#zona-E12{top:66%; left: 89%}
 #zona-C1{top:44%; left:76%}
 #zona-C2{top:44%; left:82%}
 #zona-C3{top:50%; left:72%}
 #zona-C4{top:50%; left:85%}
-#zona-rastro{top:54%; left:78%}
+#zona-rastro{top:54%; left:79%}
 
 
 
