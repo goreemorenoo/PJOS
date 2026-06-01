@@ -854,7 +854,7 @@ td {
 }
 
 .pieza-insigniaU {
-    width: 60px;
+    width: 10%;
     cursor: grab;
     transition: transform 0.2s;
 }
@@ -894,6 +894,8 @@ td {
 #zona-verde{top:23%; left:35%}
 #zona-roja{top:23%; left:41%}
 #zona-azul{top:35%; left:38%}
+#zona-E1{top:26%; left: 55%}
+
 
 
 
